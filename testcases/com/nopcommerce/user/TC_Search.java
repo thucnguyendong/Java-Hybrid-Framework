@@ -31,13 +31,13 @@ public class TC_Search {
 	
 	@BeforeClass
 	public void beforeClass() {
-		searchPageObject = new SearchPageObject();
+		searchPageObject = new SearchPageObject(driver);
 	}
 	
 	@Test
 	public void TC_01_Search_Empty_Data() {
 		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.clickSearch(driver);
+		searchPageObject.clickSearchButton();
 		assertEquals(searchPageObject.getAlertText(driver), "Please enter some search keyword");
 		searchPageObject.acceptAlert(driver);
 	}
@@ -46,27 +46,28 @@ public class TC_Search {
 	public void TC_02_Search_Less_Than_3_Characters() {
 		searchValue="ab";
 		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.inputSearch(driver, searchValue);
-		searchPageObject.clickSearch(driver);
-		assertEquals(searchPageObject.getElementText(driver, "//div[@class='products-wrapper']/div"), "Search term minimum length is 3 characters");
+		searchPageObject.inputSearch(searchValue);
+		searchPageObject.clickSearchButton();
+		
+		assertEquals(searchPageObject.getSearchError(), "Search term minimum length is 3 characters");
 	}
 	
 	@Test
 	public void TC_03_Relative_Search_With_Product_Name() {
 		searchValue="Shoes";
 		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.inputSearch(driver, searchValue);
-		searchPageObject.clickSearch(driver);
-		assertTrue(searchPageObject.getElementSize(driver, searchPageObject.searchPageUI.productTitleBy+searchValue+"')]")>1);
+		searchPageObject.inputSearch(searchValue);
+		searchPageObject.clickSearchButton();
+		assertTrue(searchPageObject.getNumberOfSearchResult(searchValue)>1);
 	}
 	
 	@Test
 	public void TC_04_Absolute_Search_With_Product_Name() {
 		searchValue="Build your own computer";
 		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.inputSearch(driver, searchValue);
-		searchPageObject.clickSearch(driver);
-		assertTrue(searchPageObject.getElementSize(driver, searchPageObject.searchPageUI.productTitleBy+searchValue+"')]")==1);
+		searchPageObject.inputSearch(searchValue);
+		searchPageObject.clickSearchButton();
+		assertTrue(searchPageObject.getNumberOfSearchResult(searchValue)==1);
 	}
 	
 	@AfterClass

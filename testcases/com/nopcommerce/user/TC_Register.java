@@ -7,14 +7,18 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
 import pageObjects.HomePageObject;
 import pageObjects.RegisterPageObjext;
 
-public class TC_Register {
+public class TC_Register extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObjext registerPage;
@@ -28,19 +32,13 @@ public class TC_Register {
 	private String month = "May";
 	private String year = "1995";
 	
-	
-	String projectPath = System.getProperty("user.dir");
-	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		System.setProperty("webdriver.chrome.driver", projectPath+File.separator+"driverBrowsers"+File.separator+"chromedriver.exe");
-		driver = new ChromeDriver();
+	public void beforeClass(String browserName) {
+		driver = getBrowserDriver(browserName);
 		homePage = new HomePageObject(driver);
 		registerPage = new RegisterPageObjext(driver);
 		emailAddress = "test"+ registerPage.getRandomNumber()+"@gmail.com";
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
 		homePage.openBrowser(driver,"https://demo.nopcommerce.com");
 	}
 	
@@ -92,7 +90,7 @@ public class TC_Register {
 		homePage.clickRegisterLink();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
-		registerPage.inputEmail("test123@gmail.com");
+		registerPage.inputEmail(emailAddress);
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
 		registerPage.clickRegisterButton();

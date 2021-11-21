@@ -6,21 +6,31 @@ import commons.BasePage;
 import pageUI.SearchPageUI;
 
 public class SearchPageObject extends BasePage {
-	public SearchPageUI searchPageUI = new SearchPageUI();
-	
-	public void inputSearch(WebDriver driver, String searchValue) {
-		waitForElementVisible(driver, searchPageUI.searchTextboxBy);
-		inputIntoElement(driver, searchPageUI.searchTextboxBy,searchValue);
+	private WebDriver driver;
+	public SearchPageObject(WebDriver driver) {
+		this.driver = driver;
+	}
+	public void inputSearch(String searchValue) {
+		waitForElementVisible(driver, SearchPageUI.SEARCH_TEXTBOX);
+		inputIntoElement(driver, SearchPageUI.SEARCH_TEXTBOX,searchValue);
 	}
 	
-	public void clickSearch(WebDriver driver) {
-		waitForElementClickable(driver, searchPageUI.searchButtonBy);
-		clickElement(driver, searchPageUI.searchButtonBy);
+	public void clickSearchButton() {
+		waitForElementClickable(driver, SearchPageUI.SEARCH_BUTTON);
+		clickElement(driver, SearchPageUI.SEARCH_BUTTON);
 	}
 	
-	public void selectProduct(WebDriver driver, String searchValue) {
-		String xpath = searchPageUI.productTitleBy + searchValue + "')]";
+	public void selectProduct(String searchValue) {
+		String xpath = SearchPageUI.PRODUCT_TITLE + "[contains(text(),'"+ searchValue + "')]";
 		waitForElementClickable(driver, xpath);
 		clickElement(driver, xpath);
+	}
+	
+	public String getSearchError() {
+		return getElementText(driver,SearchPageUI.SEARCH_ERROR_MESSAGE);
+	}
+	
+	public int getNumberOfSearchResult(String searchValue) {
+		return getElementSize(driver, SearchPageUI.PRODUCT_TITLE);
 	}
 }
