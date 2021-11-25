@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.PageGeneratorManager;
 import pageObjects.RegisterPageObjext;
 
 public class TC_Login {
@@ -30,18 +31,16 @@ public class TC_Login {
 	public void beforeTest() {
 		System.setProperty("webdriver.chrome.driver", projectPath+File.separator+"driverBrowsers"+File.separator+"chromedriver.exe");
 		driver = new ChromeDriver();
-		loginPage = new LoginPageObject(driver);
-		homePage = new HomePageObject(driver);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		
+		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.openBrowser(driver,"https://demo.nopcommerce.com");
 	}
 	
 	@BeforeClass
-	public void beforeClass() {
-		RegisterPageObjext registerPage = new RegisterPageObjext(driver);
-		
-		emailAddress = "test"+ registerPage.getRandomNumber()+"@gmail.com";		
+	public void beforeClass() {		
+		emailAddress = "test"+ homePage.getRandomNumber()+"@gmail.com";		
 		String firstName = "Thuc";
 		String lastName= "Nguyen";
 		String company = "Livegroup";
@@ -51,7 +50,7 @@ public class TC_Login {
 		String month = "May";
 		String year = "1995";
 		
-		homePage.clickRegisterLink();
+		RegisterPageObjext registerPage = homePage.clickRegisterLink();
 		registerPage.selectMaleGender();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -63,12 +62,12 @@ public class TC_Login {
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
 		registerPage.clickRegisterButton();
-		homePage.clickLogOutLink();
+		homePage = registerPage.clickLogOutLink();
 	}
 	
 	@Test
 	public void TC_01_Login_Empty() {
-		homePage.clickLogInLink();
+		LoginPageObject loginPage = homePage.clickLogInLink();
 		loginPage.clickLoginButton();
 		
 		assertEquals(loginPage.getEmailErrorMessage(), "Please enter your email");
@@ -76,7 +75,7 @@ public class TC_Login {
 	
 	@Test
 	public void TC_02_Login_Invalid_Email() {
-		homePage.clickLogInLink();
+		LoginPageObject loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail("Test");
 		loginPage.clickLoginButton();
 		
@@ -85,7 +84,7 @@ public class TC_Login {
 	
 	@Test
 	public void TC_03_Login_Not_Registered_Email() {
-		homePage.clickLogInLink();
+		LoginPageObject loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail("Testing123@yopmail.com");
 		loginPage.clickLoginButton();
 		
@@ -95,7 +94,7 @@ public class TC_Login {
 	
 	@Test
 	public void TC_04_Login_With_Empty_Password() {
-		homePage.clickLogInLink();
+		LoginPageObject loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail(emailAddress);
 		loginPage.clickLoginButton();
 		assertEquals(loginPage.getLoginErrorMessage(),
@@ -104,7 +103,7 @@ public class TC_Login {
 	
 	@Test
 	public void TC_05_Login_With_Wrong_Password() {
-		homePage.clickLogInLink();
+		LoginPageObject loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail(emailAddress);
 		loginPage.inputPassword("123457");
 		loginPage.clickLoginButton();
@@ -115,7 +114,7 @@ public class TC_Login {
 	
 	@Test
 	public void TC_06_Login_Successfully() {
-		homePage.clickLogInLink();
+		LoginPageObject loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail(emailAddress);
 		loginPage.inputPassword(password);
 		loginPage.clickLoginButton();

@@ -2,13 +2,7 @@ package com.nopcommerce.user;
 
 import static org.testng.Assert.assertEquals;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -16,6 +10,7 @@ import org.testng.annotations.Test;
 
 import commons.BaseTest;
 import pageObjects.HomePageObject;
+import pageObjects.PageGeneratorManager;
 import pageObjects.RegisterPageObjext;
 
 public class TC_Register extends BaseTest {
@@ -36,15 +31,14 @@ public class TC_Register extends BaseTest {
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObjext(driver);
-		emailAddress = "test"+ registerPage.getRandomNumber()+"@gmail.com";
+		homePage = PageGeneratorManager.getHomePage(driver);
+		emailAddress = "test"+ homePage.getRandomNumber()+"@gmail.com";
 		homePage.openBrowser(driver,"https://demo.nopcommerce.com");
 	}
 	
 	@Test
 	public void TC_01_Register_Empty_Data() {
-		homePage.clickRegisterLink();
+		registerPage = homePage.clickRegisterLink();
 		registerPage.clickRegisterButton();
 		
 		assertEquals(registerPage.getFirstNameErrorMessage(), "First name is required.");
@@ -57,7 +51,7 @@ public class TC_Register extends BaseTest {
 	
 	@Test
 	public void TC_02_Register_Invalid_Email() {
-		homePage.clickRegisterLink();
+		registerPage = homePage.clickRegisterLink();
 		registerPage.inputEmail("Test123");
 		registerPage.clickRegisterButton();
 		
@@ -66,7 +60,7 @@ public class TC_Register extends BaseTest {
 	
 	@Test
 	public void TC_03_Register_Sucessfully() {
-		homePage.clickRegisterLink();
+		registerPage = homePage.clickRegisterLink();
 		registerPage.selectMaleGender();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -81,13 +75,13 @@ public class TC_Register extends BaseTest {
 		
 		assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
 		
-		homePage.clickLogOutLink();
-		registerPage.sleepInSecond(1);
+		homePage =registerPage.clickLogOutLink();
+		homePage.sleepInSecond(1);
 	}
 	
 	@Test
 	public void TC_04_Register_Existed_Email() {
-		homePage.clickRegisterLink();
+		registerPage = homePage.clickRegisterLink();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
 		registerPage.inputEmail(emailAddress);
@@ -100,7 +94,7 @@ public class TC_Register extends BaseTest {
 	
 	@Test
 	public void TC_05_Password_Less_Than_6() {
-		homePage.clickRegisterLink();
+		registerPage = homePage.clickRegisterLink();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
 		registerPage.inputEmail(emailAddress);
@@ -113,7 +107,7 @@ public class TC_Register extends BaseTest {
 	
 	@Test
 	public void TC_06_Incorrect_Confirm_Password() {
-		homePage.clickRegisterLink();
+		registerPage = homePage.clickRegisterLink();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
 		registerPage.inputEmail(emailAddress);

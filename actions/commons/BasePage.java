@@ -338,7 +338,7 @@ public class BasePage {
 	 */
 	public void checkToDefaultCheckboxRadio(WebDriver driver, String xpathLocator) {
 		WebElement element = getElement(driver, xpathLocator);
-		if(element.isSelected()) {
+		if(!element.isSelected()) {
 			element.click();
 		}
 	}

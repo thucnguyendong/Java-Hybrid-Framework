@@ -118,4 +118,9 @@ public class RegisterPageObjext extends BasePage {
 		return getElementText(driver, RegisterPageUI.SUCCESS_MESSAGE);
 	}
 	
+	public HomePageObject clickLogOutLink() {
+		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
+		clickElement(driver, RegisterPageUI.LOGOUT_LINK);
+		return PageGeneratorManager.getHomePage(driver);
+	}
 }

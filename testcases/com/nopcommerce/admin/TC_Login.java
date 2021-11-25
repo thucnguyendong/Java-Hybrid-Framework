@@ -63,7 +63,7 @@ public class TC_Login {
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
 		registerPage.clickRegisterButton();
-		homePage.clickLogOutLink();
+		registerPage.clickLogOutLink();
 	}
 	
 	@Test
