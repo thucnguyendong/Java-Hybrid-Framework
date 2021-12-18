@@ -3,21 +3,22 @@ package com.nopcommerce.user;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
 import pageObjects.CustomerInfoPageObject;
-import pageObjects.RegisterPageObjext;
+import pageObjects.HomePageObject;
+import pageObjects.PageGeneratorManager;
+import pageObjects.RegisterPageObject;
 
-public class TC_Update_Customer_Info {
+public class TC_Update_Customer_Info extends BaseTest {
 	WebDriver driver;
+	HomePageObject homePage;
+	RegisterPageObject registerPage;
 	CustomerInfoPageObject customerInfoPage;
 	String firstName;
 	String lastName;
@@ -31,16 +32,14 @@ public class TC_Update_Customer_Info {
 	
 	@BeforeTest
 	public void beforeTest() {
-		System.setProperty("webdriver.chrome.driver", projectPath+File.separator+"driverBrowsers"+File.separator+"chromedriver.exe");
-		driver = new ChromeDriver();
-		customerInfoPage = new CustomerInfoPageObject();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		driver = getBrowserDriver("chrome");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage.openHomePage();
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		RegisterPageObjext registerPage = new RegisterPageObjext(driver);
+		registerPage = homePage.clickRegisterLink();
 		
 		emailAddress = "test"+ registerPage.getRandomNumber()+"@gmail.com";		
 		firstName = "Thuc";
@@ -52,7 +51,6 @@ public class TC_Update_Customer_Info {
 		month = "May";
 		year = "1995";
 		
-		registerPage.openBrowser(driver,"https://demo.nopcommerce.com/register?returnUrl=%2F");
 		registerPage.selectMaleGender();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -63,10 +61,7 @@ public class TC_Update_Customer_Info {
 		registerPage.inputEmail(emailAddress);
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
-		registerPage.clickRegisterButton();
-		assertEquals(registerPage.getElementText(driver,"//*[@class='result']"), "Your registration completed");
-		registerPage.clickElement(driver, "//div[@class ='header-links']//a[text()='My account']");
-		registerPage.sleepInSecond(1);
+		homePage =registerPage.clickRegisterButton();
 	}
 	
 	@Test
@@ -79,24 +74,25 @@ public class TC_Update_Customer_Info {
 		emailAddress = "automationfc.vn@gmail.com";
 		company ="Automation FC";
 		
-		customerInfoPage.selectFemaleGender(driver);
-		customerInfoPage.inputFirstName(driver, firstName);
-		customerInfoPage.inputLastName(driver, lastName);
-		customerInfoPage.selectDay(driver, day);
-		customerInfoPage.selectMonth(driver, month);
-		customerInfoPage.selectYear(driver, year);
-		customerInfoPage.inputEmail(driver, emailAddress);
-		customerInfoPage.inputCompany(driver, company);
-		customerInfoPage.clickSave(driver);
+		customerInfoPage = homePage.clickMyAccountLink(driver);
+		customerInfoPage.selectFemaleGender();
+		customerInfoPage.inputFirstName(firstName);
+		customerInfoPage.inputLastName(lastName);
+		customerInfoPage.selectDay(day);
+		customerInfoPage.selectMonth(month);
+		customerInfoPage.selectYear(year);
+		customerInfoPage.inputEmail(emailAddress);
+		customerInfoPage.inputCompany(company);
+		customerInfoPage.clickSave();
 		
-		assertTrue(customerInfoPage.isElementSelected(driver, customerInfoPage.customerInfoPageUI.femaleRadioButtonBy));
-		assertEquals(customerInfoPage.getElementAttribute(driver, customerInfoPage.customerInfoPageUI.firstNameTextboxBy, "value"),firstName);
-		assertEquals(customerInfoPage.getElementAttribute(driver, customerInfoPage.customerInfoPageUI.lastNameTextboxBy, "value"),lastName);
-		assertEquals(customerInfoPage.getItemInDefaultDropdown(driver, customerInfoPage.customerInfoPageUI.dayDropdownListBy),day);
-		assertEquals(customerInfoPage.getItemInDefaultDropdown(driver, customerInfoPage.customerInfoPageUI.monthDropdownListBy),month);
-		assertEquals(customerInfoPage.getItemInDefaultDropdown(driver, customerInfoPage.customerInfoPageUI.yearDropdownListBy),year);
-		assertEquals(customerInfoPage.getElementAttribute(driver, customerInfoPage.customerInfoPageUI.emailTextboxBy, "value"),emailAddress);
-		assertEquals(customerInfoPage.getElementAttribute(driver, customerInfoPage.customerInfoPageUI.companyTextboxBy, "value"),company);
+		assertTrue(customerInfoPage.isFemaleSelected());
+		assertEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
+		assertEquals(customerInfoPage.getLastNameTextboxValue(),lastName);
+		assertEquals(customerInfoPage.getSelectedDayValue(),day);
+		assertEquals(customerInfoPage.getSelectedMonthValue(),month);
+		assertEquals(customerInfoPage.getSelectedYearValue(),year);
+		assertEquals(customerInfoPage.getEmailTextboxValue(),emailAddress);
+		assertEquals(customerInfoPage.getCompanyTextboxValue(),company);
 		
 	}
 	

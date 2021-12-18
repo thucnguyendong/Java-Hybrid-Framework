@@ -11,12 +11,12 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.HomePageObject;
 import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObjext;
+import pageObjects.RegisterPageObject;
 
 public class TC_Register extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
-	private RegisterPageObjext registerPage;
+	private RegisterPageObject registerPage;
 	private String emailAddress;
 	private String firstName = "Thuc";
 	private String lastName= "Nguyen";

@@ -1,16 +1,16 @@
 package pageUI;
 
 public class CustomerInfoPageUI {
-	public String customerInfoLinkBy = "//ul[@class='list']//a[text()='Customer info']";
-	public String maleRadioButtonBy ="//input[@id='gender-male']";
-	public String femaleRadioButtonBy = "//input[@id='gender-female']";
-	public String firstNameTextboxBy = "//input[@id='FirstName']";
-	public String lastNameTextboxBy = "//input[@id='LastName']";
-	public String dayDropdownListBy = "//select[@name='DateOfBirthDay']";
-	public String monthDropdownListBy = "//select[@name='DateOfBirthMonth']";
-	public String yearDropdownListBy = "//select[@name='DateOfBirthYear']";
-	public String emailTextboxBy = "//input[@id='Email']";
-	public String companyTextboxBy = "//input[@id='Company']";
-	public String newsletterCheckboxBy = "//input[@id='Newsletter']";
-	public String saveButtonBy = "//button[@id='save-info-button']";
+	public static final String MALE_RADIO_BUTTON ="//input[@id='gender-male']";
+	public static final String FEMALE_RADIO_BUTTON = "//input[@id='gender-female']";
+	public static final String FIRSTNAME_TEXTBOX = "//input[@id='FirstName']";
+	public static final String LASTNAME_TEXTBOX = "//input[@id='LastName']";
+	public static final String DAY_DROPDOWN = "//select[@name='DateOfBirthDay']";
+	public static final String MONTH_DROPDOWN = "//select[@name='DateOfBirthMonth']";
+	public static final String YEAR_DROPDOWN = "//select[@name='DateOfBirthYear']";
+	public static final String EMAIL_TEXTBOX = "//input[@id='Email']";
+	public static final String COMPANY_TEXTBOX = "//input[@id='Company']";
+	public static final String NEWSLETTER_CHECKBOX = "//input[@id='Newsletter']";
+	public static final String SAVE_BUTTON = "//button[@id='save-info-button']";
+	public static final String MY_ACCOUNT_TITLE = "//div[@class ='page-title']/h1";
 }

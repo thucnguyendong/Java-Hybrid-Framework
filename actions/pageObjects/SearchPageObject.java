@@ -7,9 +7,12 @@ import pageUI.SearchPageUI;
 
 public class SearchPageObject extends BasePage {
 	private WebDriver driver;
+	
 	public SearchPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	
 	public void inputSearch(String searchValue) {
 		waitForElementVisible(driver, SearchPageUI.SEARCH_TEXTBOX);
 		inputIntoElement(driver, SearchPageUI.SEARCH_TEXTBOX,searchValue);
@@ -20,17 +23,26 @@ public class SearchPageObject extends BasePage {
 		clickElement(driver, SearchPageUI.SEARCH_BUTTON);
 	}
 	
-	public void selectProduct(String searchValue) {
-		String xpath = SearchPageUI.PRODUCT_TITLE + "[contains(text(),'"+ searchValue + "')]";
+	public ProductPageObject selectProduct(String searchValue) {
+		String xpath = SearchPageUI.PRODUCT_TITLE +"/a[contains(text(),'"+ searchValue + "')]";
 		waitForElementClickable(driver, xpath);
 		clickElement(driver, xpath);
+		return PageGeneratorManager.getProductPage(driver);
+	}
+
+	public String getSearchErrorText() {
+		waitForElementVisible(driver, SearchPageUI.SEARCH_ERROR);
+		return getElementText(driver, SearchPageUI.SEARCH_ERROR);
 	}
 	
-	public String getSearchError() {
-		return getElementText(driver,SearchPageUI.SEARCH_ERROR_MESSAGE);
+	public String getSearchNoValueText() {
+		waitForElementVisible(driver, SearchPageUI.SEARCH_NO_RESULT);
+		return getElementText(driver, SearchPageUI.SEARCH_NO_RESULT);
 	}
-	
+
+
 	public int getNumberOfSearchResult(String searchValue) {
+		waitForAllElementsVisible(driver, SearchPageUI.PRODUCT_TITLE);
 		return getElementSize(driver, SearchPageUI.PRODUCT_TITLE);
 	}
 }

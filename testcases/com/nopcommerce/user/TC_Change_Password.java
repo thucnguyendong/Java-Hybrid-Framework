@@ -3,23 +3,27 @@ package com.nopcommerce.user;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
 import pageObjects.ChangePasswordPageObject;
+import pageObjects.CustomerInfoPageObject;
+import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObjext;
+import pageObjects.PageGeneratorManager;
+import pageObjects.RegisterPageObject;
 
-public class TC_Change_Password {
+public class TC_Change_Password extends BaseTest {
 	WebDriver driver;
+	HomePageObject homePage;
+	CustomerInfoPageObject customerInfoPage;
 	ChangePasswordPageObject changePasswordPage;
+	RegisterPageObject registerPage;
+	LoginPageObject loginPage;
 	String password;
 	String emailAddress;
 	
@@ -27,18 +31,14 @@ public class TC_Change_Password {
 	
 	@BeforeTest
 	public void beforeTest() {
-		System.setProperty("webdriver.chrome.driver", projectPath+File.separator+"driverBrowsers"+File.separator+"chromedriver.exe");
-		driver = new ChromeDriver();
-		changePasswordPage = new ChangePasswordPageObject();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		driver = getBrowserDriver("chrome");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage.openHomePage();
 	}
 	
 	@BeforeClass
-	public void beforeClass() {
-		RegisterPageObjext registerPage = new RegisterPageObjext(driver);
-		
-		emailAddress = "test"+ registerPage.getRandomNumber()+"@gmail.com";		
+	public void beforeClass() {		
+		emailAddress = "test"+ homePage.getRandomNumber()+"@gmail.com";		
 		String firstName = "Thuc";
 		String lastName= "Nguyen";
 		String company = "Livegroup";
@@ -48,7 +48,7 @@ public class TC_Change_Password {
 		String month = "May";
 		String year = "1995";
 		
-		registerPage.openBrowser(driver,"https://demo.nopcommerce.com/register?returnUrl=%2F");
+		registerPage = homePage.clickRegisterLink();
 		registerPage.selectMaleGender();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -59,31 +59,27 @@ public class TC_Change_Password {
 		registerPage.inputEmail(emailAddress);
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
-		registerPage.clickRegisterButton();
+		homePage=registerPage.clickRegisterButton();
 		
-		assertEquals(registerPage.getElementText(driver,"//*[@class='result']"), "Your registration completed");
-		registerPage.clickElement(driver, "//div[@class ='header-links']//a[text()='My account']");
-		changePasswordPage.openChangePasswordPage(driver);
-		changePasswordPage.sleepInSecond(1);
+		assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
 	}
 	
 	@Test
 	public void TC_01_Change_Password() {
 		String newPassword = "123457";
 		
-		changePasswordPage.inputOldPassword(driver, password);
-		changePasswordPage.inputNewPassword(driver, newPassword);
-		changePasswordPage.inputConfirmPassword(driver, newPassword);
-		changePasswordPage.clickChangePassword(driver);
+		customerInfoPage =homePage.clickMyAccountLink(driver);
+		changePasswordPage= customerInfoPage.openChangePasswordPage(driver);
+		changePasswordPage.inputOldPassword(password);
+		changePasswordPage.inputNewPassword(newPassword);
+		changePasswordPage.inputConfirmPassword(newPassword);
+		changePasswordPage.clickChangePassword();
+		assertEquals(changePasswordPage.getSuccessMessage(), "Password was changed");
 		
-		assertEquals(changePasswordPage.getElementText(driver,"//div[@class='bar-notification success']/p"), "Password was changed");
+		changePasswordPage.closeSuccessPopUp();
+		homePage = changePasswordPage.clickLogOutLink(driver);
 		
-		changePasswordPage.closeSuccessPopUp(driver);
-		changePasswordPage.sleepInSecond(1);
-		changePasswordPage.clickElement(driver, "//div[@class='header-links']//a[text()='Log out']");
-		
-		LoginPageObject loginPage = new LoginPageObject(driver);
-		loginPage.clickElement(driver, "//div[@class='header-links']//a[text()='Log in']");
+		loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail(emailAddress);
 		loginPage.inputPassword(password);
 		loginPage.clickLoginButton();
@@ -93,9 +89,8 @@ public class TC_Change_Password {
 		loginPage.inputEmail(emailAddress);
 		loginPage.inputPassword(newPassword);
 		loginPage.clickLoginButton();
-		loginPage.clickElement(driver, "//div[@class ='header-links']//a[text()='My account']");
-		assertTrue(loginPage.getElementText(driver, "//div[@class ='page-title']/h1")
-				.contains("My account - Customer info"));
+		customerInfoPage = loginPage.clickMyAccountLink(driver);
+		assertTrue(customerInfoPage.getMyAccountPageTitle().contains("My account - Customer info"));
 	}
 	
 	@AfterClass

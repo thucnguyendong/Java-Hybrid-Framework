@@ -2,39 +2,46 @@ package com.nopcommerce.user;
 
 import static org.testng.Assert.assertEquals;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import pageObjects.MyReviewPageObject;
+import commons.BaseTest;
+import pageObjects.CustomerInfoPageObject;
+import pageObjects.HomePageObject;
+import pageObjects.MyProductReviewPageObject;
+import pageObjects.PageGeneratorManager;
 import pageObjects.ProductPageObject;
 import pageObjects.ProductReviewPageObject;
-import pageObjects.RegisterPageObjext;
+import pageObjects.RegisterPageObject;
 import pageObjects.SearchPageObject;
 
-public class TC_Review_Product {
+public class TC_Review_Product extends BaseTest {
 	WebDriver driver;	
-	String projectPath = System.getProperty("user.dir");
+	HomePageObject homePage;
+	RegisterPageObject registerPage;
+	ProductPageObject productPage;
+	ProductReviewPageObject productReviewPage;
+	SearchPageObject searchPage;
+	CustomerInfoPageObject customerInfoPage;
+	MyProductReviewPageObject myReviewPage;
+	
+	String emailAddress;
 	
 	@BeforeTest
 	public void beforeTest() {
-		System.setProperty("webdriver.chrome.driver", projectPath+File.separator+"driverBrowsers"+File.separator+"chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		driver = getBrowserDriver("chrome");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage.openHomePage();
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		RegisterPageObjext registerPage = new RegisterPageObjext(driver);
+		registerPage = homePage.clickRegisterLink();
 		
-		String emailAddress = "test"+ registerPage.getRandomNumber()+"@gmail.com";		
+		emailAddress = "test"+ homePage.getRandomNumber()+"@gmail.com";	
 		String firstName = "Thuc";
 		String lastName= "Nguyen";
 		String company = "Livegroup";
@@ -44,7 +51,6 @@ public class TC_Review_Product {
 		String month = "May";
 		String year = "1995";
 		
-		registerPage.openBrowser(driver,"https://demo.nopcommerce.com/register?returnUrl=%2F");
 		registerPage.selectMaleGender();
 		registerPage.inputFirstName( firstName);
 		registerPage.inputLastName( lastName);
@@ -55,37 +61,32 @@ public class TC_Review_Product {
 		registerPage.inputEmail( emailAddress);
 		registerPage.inputPassword( password);
 		registerPage.inputConfirmPassword( confirmPassword);
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getElementText(driver,"//*[@class='result']"), "Your registration completed");
-		registerPage.sleepInSecond(1);
+		homePage=registerPage.clickRegisterButton();
 	}
 	
 	@Test
 	public void TC_01_Review_Product() {	
-		SearchPageObject searchPage = new SearchPageObject(driver);
+		searchPage = PageGeneratorManager.getSearchPage(driver);
 		String searchValue = "Build your own computer";	
 		searchPage.inputSearch(searchValue);
 		searchPage.clickSearchButton();
-		searchPage.selectProduct(searchValue);
 		
-		ProductPageObject productPage = new ProductPageObject();
-		productPage.clickReview(driver);
+		productPage = searchPage.selectProduct(searchValue);
 		
-		ProductReviewPageObject productReviewPage = new ProductReviewPageObject();
+		productReviewPage = productPage.clickReview();
 		String reviewTitle = "Order "+ productReviewPage.getRandomNumber();
 		String reviewText = "Testing" + productReviewPage.getRandomNumber();
 		String rating = "3";
-		productReviewPage.inputReviewTitle(driver, reviewTitle);
-		productReviewPage.inputReviewText(driver, reviewText);
-		productReviewPage.clickRating(driver, rating);
-		productReviewPage.clickSubmitReview(driver);
-		productReviewPage.clickElement(driver, "//div[@class ='header-links']//a[text()='My account']");
+		productReviewPage.inputReviewTitle(reviewTitle);
+		productReviewPage.inputReviewText(reviewText);
+		productReviewPage.clickRating(rating);
+		productReviewPage.clickSubmitReview();
 		
-		MyReviewPageObject myReviewPage = new MyReviewPageObject();
-		myReviewPage.openMyReviewPage(driver);
-		assertEquals(myReviewPage.getElementText(driver, "//div[@class='review-title']/strong"), reviewTitle);
-		assertEquals(myReviewPage.getElementText(driver, "//div[@class='review-text']"), reviewText);
+		customerInfoPage = productReviewPage.clickMyAccountLink(driver);;
+		
+		myReviewPage = customerInfoPage.openMyReviewPage(driver);
+		assertEquals(myReviewPage.getReviewTitle(), reviewTitle);
+		assertEquals(myReviewPage.getReviewText(), reviewText);
 	}
 	
 	@AfterClass

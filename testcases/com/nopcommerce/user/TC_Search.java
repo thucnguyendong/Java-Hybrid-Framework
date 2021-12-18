@@ -3,71 +3,67 @@ package com.nopcommerce.user;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
+import pageObjects.HomePageObject;
+import pageObjects.PageGeneratorManager;
 import pageObjects.SearchPageObject;
 
-public class TC_Search {
+public class TC_Search extends BaseTest {
 	WebDriver driver;
-	SearchPageObject searchPageObject;
+	HomePageObject homePage;
+	SearchPageObject searchPage;
 	String searchValue;
-	String projectPath = System.getProperty("user.dir");
-	
-	@BeforeTest
-	public void beforeTest() {
-		System.setProperty("webdriver.chrome.driver", projectPath+File.separator+"driverBrowsers"+File.separator+"chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		searchPageObject = new SearchPageObject(driver);
+		driver = getBrowserDriver("chrome");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage.openHomePage();
 	}
 	
 	@Test
 	public void TC_01_Search_Empty_Data() {
-		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.clickSearchButton();
-		assertEquals(searchPageObject.getAlertText(driver), "Please enter some search keyword");
-		searchPageObject.acceptAlert(driver);
+		searchPage = PageGeneratorManager.getSearchPage(driver);
+		searchPage.clickSearchButton();
+		assertEquals(searchPage.getAlertText(driver), "Please enter some search keyword");
+		searchPage.acceptAlert(driver);
 	}
 	
 	@Test
 	public void TC_02_Search_Less_Than_3_Characters() {
 		searchValue="ab";
-		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.inputSearch(searchValue);
-		searchPageObject.clickSearchButton();
-		
-		assertEquals(searchPageObject.getSearchError(), "Search term minimum length is 3 characters");
+		searchPage.inputSearch(searchValue);
+		searchPage.clickSearchButton();
+		assertEquals(searchPage.getSearchErrorText(), "Search term minimum length is 3 characters");
 	}
 	
 	@Test
-	public void TC_03_Relative_Search_With_Product_Name() {
+	public void TC_03_Search_Return_No_Value() {
+		searchValue="abc";
+		searchPage.inputSearch(searchValue);
+		searchPage.clickSearchButton();
+		assertEquals(searchPage.getSearchNoValueText(), "No products were found that matched your criteria.");
+	}
+	
+	@Test
+	public void TC_04_Relative_Search_With_Product_Name() {
 		searchValue="Shoes";
-		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.inputSearch(searchValue);
-		searchPageObject.clickSearchButton();
-		assertTrue(searchPageObject.getNumberOfSearchResult(searchValue)>1);
+		searchPage.inputSearch(searchValue);
+		searchPage.clickSearchButton();
+		assertTrue(searchPage.getNumberOfSearchResult(searchValue)>1);
 	}
 	
 	@Test
-	public void TC_04_Absolute_Search_With_Product_Name() {
+	public void TC_05_Absolute_Search_With_Product_Name() {
 		searchValue="Build your own computer";
-		searchPageObject.openBrowser(driver, "https://demo.nopcommerce.com/");
-		searchPageObject.inputSearch(searchValue);
-		searchPageObject.clickSearchButton();
-		assertTrue(searchPageObject.getNumberOfSearchResult(searchValue)==1);
+		searchPage.inputSearch(searchValue);
+		searchPage.clickSearchButton();
+		assertTrue(searchPage.getNumberOfSearchResult(searchValue)==1);
 	}
 	
 	@AfterClass
