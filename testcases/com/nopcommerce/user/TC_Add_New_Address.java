@@ -13,25 +13,25 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.AddressPageObject;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.portal.UserHomePageObject;
+import pageObjects.nopcommerce.portal.UserRegisterPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserAddressPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserCustomerInfoPageObject;
 
 public class TC_Add_New_Address extends BaseTest {
 	WebDriver driver;
-	HomePageObject homePage;
-	AddressPageObject addressPage;
-	RegisterPageObject registerPage;
-	CustomerInfoPageObject customerInfoPage;
+	UserHomePageObject homePage;
+	UserAddressPageObject addressPage;
+	UserRegisterPageObject registerPage;
+	UserCustomerInfoPageObject customerInfoPage;
 	
 	String projectPath = System.getProperty("user.dir");
 	
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		homePage.openHomePage();
 	}
 	

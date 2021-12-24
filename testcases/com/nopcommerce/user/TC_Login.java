@@ -10,23 +10,23 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.portal.UserHomePageObject;
+import pageObjects.nopcommerce.portal.UserLoginPageObject;
+import pageObjects.nopcommerce.portal.UserRegisterPageObject;
 
 public class TC_Login extends BaseTest {
 	private WebDriver driver;
-	private LoginPageObject loginPage;
-	private HomePageObject homePage;
+	private UserLoginPageObject loginPage;
+	private UserHomePageObject homePage;
 	private String emailAddress;
 	private String password;
 		
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome");
-		homePage = PageGeneratorManager.getHomePage(driver);
-		homePage.openBrowser(driver,"https://demo.nopcommerce.com");
+		homePage = PageGeneratorManager.getUserHomePage(driver);
+		homePage.openHomePage();
 	}
 	
 	@BeforeClass
@@ -41,7 +41,7 @@ public class TC_Login extends BaseTest {
 		String month = "May";
 		String year = "1995";
 		
-		RegisterPageObject registerPage = homePage.clickRegisterLink();
+		UserRegisterPageObject registerPage = homePage.clickRegisterLink();
 		registerPage.selectMaleGender();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -108,7 +108,7 @@ public class TC_Login extends BaseTest {
 		loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail(emailAddress);
 		loginPage.inputPassword(password);
-		loginPage.clickLoginButton();
+		homePage=loginPage.clickLoginButton();
 		
 		homePage.clickMyAccountLink(driver);
 		assertTrue(homePage.isMyAccountLinkDisplayed());

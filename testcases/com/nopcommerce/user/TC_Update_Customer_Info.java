@@ -10,16 +10,16 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.portal.UserHomePageObject;
+import pageObjects.nopcommerce.portal.UserRegisterPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserCustomerInfoPageObject;
 
 public class TC_Update_Customer_Info extends BaseTest {
 	WebDriver driver;
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	CustomerInfoPageObject customerInfoPage;
+	UserHomePageObject homePage;
+	UserRegisterPageObject registerPage;
+	UserCustomerInfoPageObject customerInfoPage;
 	String firstName;
 	String lastName;
 	String company;
@@ -33,7 +33,7 @@ public class TC_Update_Customer_Info extends BaseTest {
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		homePage.openHomePage();
 	}
 	

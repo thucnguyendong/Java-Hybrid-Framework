@@ -17,6 +17,7 @@ public class BaseTest {
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	private String chromeVersion = "93.0.4577.63";
+	protected String userUrl,adminUrl;
 	
 	protected WebDriver getLocalBrowserDriver(String browserName) {
 		if (browserName.equals("chrome")){
@@ -94,5 +95,16 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		return driver;
+	}
+	
+	protected void setEnvironmentURL(String environment) {
+		switch (environment) {
+			case "DEV":
+				userUrl = GlobalConstants.USER_PORTAL_PAGE_URL;
+				adminUrl = GlobalConstants.ADMIN_PAGE_URL;
+				break;
+			default:
+				System.out.println("Wrong environment name");
+		}
 	}
 }

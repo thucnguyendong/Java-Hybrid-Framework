@@ -1,6 +1,6 @@
-package pageUI;
+package pageUI.nopcommerce.portal;
 
-public class RegisterPageUI {
+public class UserRegisterPageUI {
 	public static final String MALE_RADIO_BUTTON ="//input[@id='gender-male']";
 	public static final String FEMALE_RADIO_BUTTON = "//input[@id='gender-female']";
 	public static final String FIRST_NAME_TEXTBOX = "//input[@id='FirstName']";

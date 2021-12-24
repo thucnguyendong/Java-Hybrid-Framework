@@ -9,31 +9,31 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.MyProductReviewPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.ProductPageObject;
-import pageObjects.ProductReviewPageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.SearchPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.portal.UserHomePageObject;
+import pageObjects.nopcommerce.portal.UserProductPageObject;
+import pageObjects.nopcommerce.portal.UserProductReviewPageObject;
+import pageObjects.nopcommerce.portal.UserRegisterPageObject;
+import pageObjects.nopcommerce.portal.UserSearchPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserCustomerInfoPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserMyProductReviewPageObject;
 
 public class TC_Review_Product extends BaseTest {
 	WebDriver driver;	
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	ProductPageObject productPage;
-	ProductReviewPageObject productReviewPage;
-	SearchPageObject searchPage;
-	CustomerInfoPageObject customerInfoPage;
-	MyProductReviewPageObject myReviewPage;
+	UserHomePageObject homePage;
+	UserRegisterPageObject registerPage;
+	UserProductPageObject productPage;
+	UserProductReviewPageObject productReviewPage;
+	UserSearchPageObject searchPage;
+	UserCustomerInfoPageObject customerInfoPage;
+	UserMyProductReviewPageObject myReviewPage;
 	
 	String emailAddress;
 	
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		homePage.openHomePage();
 	}
 	
@@ -66,7 +66,7 @@ public class TC_Review_Product extends BaseTest {
 	
 	@Test
 	public void TC_01_Review_Product() {	
-		searchPage = PageGeneratorManager.getSearchPage(driver);
+		searchPage = PageGeneratorManager.getUserSearchPage(driver);
 		String searchValue = "Build your own computer";	
 		searchPage.inputSearch(searchValue);
 		searchPage.clickSearchButton();

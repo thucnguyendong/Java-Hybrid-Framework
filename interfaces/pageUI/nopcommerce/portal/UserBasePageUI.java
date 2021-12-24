@@ -1,13 +1,15 @@
-package pageUI;
+package pageUI.nopcommerce.portal;
 
-public class BasePageUI {
+public class UserBasePageUI {
 	/** Header */
 	public static final String REGISTER_LINK = "//div[@class='header-links']//a[text()='Register']";
-	public static final String LOGOUT_LINK = "//a[text()='Log out']";
+	public static final String LOGOUT_LINK_AT_USER = "//a[text()='Log out']";
+	public static final String LOGOUT_LINK_AT_ADMIN = "//a[text()='Logout']";
 	public static final String LOGIN_LINK = "//div[@class='header-links']//a[text()='Log in']";
-	
-	/** My Review Page list */
 	public static final String MY_ACCOUNT_LINK = "//div[@class='header-links']//a[text()='My account']";
+
+	
+	/** My Dynamic page list */
 	public static final String ADDRESS_LINK = "//ul[@class='list']//a[text()='Addresses']";
 	public static final String CHANGE_PASSWORD_LINK = "//ul[@class='list']//a[text()='Change password']";
 	public static final String CUSTOMER_INFO_LINK = "//ul[@class='list']//a[text()='Customer info']";
@@ -16,5 +18,6 @@ public class BasePageUI {
 	public static final String ORDER_LINK = "//ul[@class='list']//a[text()='Orders']";
 	public static final String DOWNLOADABLE_PRODUCTS_LINK = "//ul[@class='list']//a[text()='Downloadable products']";
 	public static final String BACK_IN_STOCK_SUBSCRIPTION_LINK = "//ul[@class='list']//a[text()='Back in stock subscriptions']";
-	public static final String DYNAMIC_PAGE_FOOTER = "//div[@class='footer']//a[text()='%s'";
+	public static final String DYNAMIC_MYWEB_MENU = "//ul[@class='list']//a[text()='%s']";
+	public static final String DYNAMIC_PAGE_FOOTER = "//div[@class='footer']//a[text()='%s']";
 }

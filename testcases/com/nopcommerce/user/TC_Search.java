@@ -9,26 +9,26 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.SearchPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.portal.UserHomePageObject;
+import pageObjects.nopcommerce.portal.UserSearchPageObject;
 
 public class TC_Search extends BaseTest {
 	WebDriver driver;
-	HomePageObject homePage;
-	SearchPageObject searchPage;
+	UserHomePageObject homePage;
+	UserSearchPageObject searchPage;
 	String searchValue;
 	
 	@BeforeClass
 	public void beforeClass() {
 		driver = getBrowserDriver("chrome");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		homePage.openHomePage();
 	}
 	
 	@Test
 	public void TC_01_Search_Empty_Data() {
-		searchPage = PageGeneratorManager.getSearchPage(driver);
+		searchPage = PageGeneratorManager.getUserSearchPage(driver);
 		searchPage.clickSearchButton();
 		assertEquals(searchPage.getAlertText(driver), "Please enter some search keyword");
 		searchPage.acceptAlert(driver);

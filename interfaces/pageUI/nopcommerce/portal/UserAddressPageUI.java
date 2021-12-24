@@ -1,6 +1,6 @@
-package pageUI;
+package pageUI.nopcommerce.portal;
 
-public class AddressPageUI {
+public class UserAddressPageUI {
 	public static final String ADD_BUTTON = "//div[@class='add-button']/button";
 	public static final String FIRSTNAME_TEXTBOX = "//input[@id='Address_FirstName']";
 	public static final String LASTNAME_TEXTBOX = "//input[@id='Address_LastName']";

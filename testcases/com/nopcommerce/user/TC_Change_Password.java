@@ -10,20 +10,20 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.ChangePasswordPageObject;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.portal.UserHomePageObject;
+import pageObjects.nopcommerce.portal.UserLoginPageObject;
+import pageObjects.nopcommerce.portal.UserRegisterPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserChangePasswordPageObject;
+import pageObjects.nopcommerce.portal.myweb.UserCustomerInfoPageObject;
 
 public class TC_Change_Password extends BaseTest {
 	WebDriver driver;
-	HomePageObject homePage;
-	CustomerInfoPageObject customerInfoPage;
-	ChangePasswordPageObject changePasswordPage;
-	RegisterPageObject registerPage;
-	LoginPageObject loginPage;
+	UserHomePageObject homePage;
+	UserCustomerInfoPageObject customerInfoPage;
+	UserChangePasswordPageObject changePasswordPage;
+	UserRegisterPageObject registerPage;
+	UserLoginPageObject loginPage;
 	String password;
 	String emailAddress;
 	
@@ -32,7 +32,7 @@ public class TC_Change_Password extends BaseTest {
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome");
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		homePage.openHomePage();
 	}
 	
@@ -77,7 +77,7 @@ public class TC_Change_Password extends BaseTest {
 		assertEquals(changePasswordPage.getSuccessMessage(), "Password was changed");
 		
 		changePasswordPage.closeSuccessPopUp();
-		homePage = changePasswordPage.clickLogOutLink(driver);
+		homePage = changePasswordPage.clickUserLogOutLink(driver);
 		
 		loginPage = homePage.clickLogInLink();
 		loginPage.inputEmail(emailAddress);
