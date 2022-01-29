@@ -4,6 +4,7 @@ package commons;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -20,8 +21,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.nopcommerce.admin.AdminLoginPageObject;
 import pageObjects.nopcommerce.portal.UserHomePageObject;
-import pageObjects.nopcommerce.portal.UserLoginPageObject;
-import pageObjects.nopcommerce.portal.UserRegisterPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserAddressPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserBackInStockSubscriptionPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserChangePasswordPageObject;
@@ -30,6 +29,7 @@ import pageObjects.nopcommerce.portal.myweb.UserDownloadableProductPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserMyProductReviewPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserOrderPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserRewardPointPageObject;
+import pageUI.nopcommerce.admin.AdminBasePageUI;
 import pageUI.nopcommerce.portal.UserBasePageUI;
 
 public class BasePage {
@@ -103,7 +103,7 @@ public class BasePage {
 	 * @param driver
 	 */		
 	public Alert waitForAlertPresence(WebDriver driver) {
-		WebDriverWait explicitWait = new WebDriverWait(driver, 30);
+		WebDriverWait explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		return explicitWait.until(ExpectedConditions.alertIsPresent());
 	}
 	
@@ -214,8 +214,8 @@ public class BasePage {
 		return driver.findElements(getByXpath(xpathLocator));
 	}
 	
-	private String getDynamicLocator(String locator, String...params) {
-		return String.format(locator, (Object[])params);
+	private String getDynamicLocator(String xpathLocator, String...params) {
+		return String.format(xpathLocator, (Object[])params);
 	}
 	/** 
 	 * Click element
@@ -278,7 +278,7 @@ public class BasePage {
 	 * @param value you want to select in the dropdown
 	 */
 	public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childLocator, String itemValue) {
-		WebDriverWait explicitWait = new WebDriverWait(driver,30);
+		WebDriverWait explicitWait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		
 		getElement(driver, parentLocator).click();		
@@ -321,6 +321,10 @@ public class BasePage {
 		return getElement(driver, xpathLocator).getAttribute(attributeName);
 	}
 	
+	public String getElementAttribute(WebDriver driver, String xpathLocator, String attributeName, String...params) {
+		return getElement(driver, getDynamicLocator(xpathLocator, params)).getAttribute(attributeName);
+	}
+	
 	/**
 	 * Get text of the element
 	 * @param driver
@@ -349,6 +353,10 @@ public class BasePage {
 	 */
 	public int getElementSize(WebDriver driver, String xpathLocator) {
 		return driver.findElements(getByXpath(xpathLocator)).size();
+	}
+	
+	public int getElementSize(WebDriver driver, String xpathLocator, String... params) {
+		return driver.findElements(getByXpath(getDynamicLocator(xpathLocator, params))).size();
 	}
 	
 	/**
@@ -397,6 +405,25 @@ public class BasePage {
 	
 	public boolean isElementDisplayed(WebDriver driver, String xpathLocator, String...params) {
 		return getElement(driver, getDynamicLocator(xpathLocator, params)).isDisplayed();
+	}
+	
+	public boolean isElementUndisplayed(WebDriver driver, String xpathLocator) {
+		overideImplicitTimeout(driver,GlobalConstants.SHORT_TIMEOUT);
+		List<WebElement> elements = getListElement(driver, xpathLocator);
+		overideImplicitTimeout(driver,GlobalConstants.LONG_TIMEOUT);
+		if(elements.size()==0) {
+			return true;
+		}
+		else if(elements.size()>0 && (!elements.get(0).isDisplayed())) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void overideImplicitTimeout(WebDriver driver, int timeouts) {
+		driver.manage().timeouts().implicitlyWait(timeouts, TimeUnit.SECONDS);
 	}
 	
 	/**
@@ -570,7 +597,7 @@ public class BasePage {
 	 * @return true/false
 	 */
 	public boolean areJQueryAndJSLoadedSuccess(WebDriver driver) {
-		WebDriverWait explicitWait = new WebDriverWait(driver, 30);
+		WebDriverWait explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 
 		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
@@ -627,12 +654,12 @@ public class BasePage {
 	 * @param xpathLocator of the element to wait
 	 */
 	public void waitForElementVisible(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(xpathLocator)));
 	}
 	
 	public void waitForElementVisible(WebDriver driver, String xpathLocator, String...params) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(getDynamicLocator(xpathLocator, params))));
 	}
 	
@@ -642,7 +669,7 @@ public class BasePage {
 	 * @param xpathLocator of elements to wait
 	 */
 	public void waitForAllElementsVisible(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(xpathLocator)));
 	}
 		
@@ -652,12 +679,12 @@ public class BasePage {
 	 * @param xpathLocator of the element to wait
 	 */
 	public void waitForElementClickable(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator)));
 	}
 	
 	public void waitForElementClickable(WebDriver driver, String xpathLocator, String...params) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.elementToBeClickable(getByXpath(getDynamicLocator(xpathLocator, params))));
 	}
 		
@@ -667,12 +694,12 @@ public class BasePage {
 	 * @param xpathLocator of the element to wait
 	 */
 	public void waitForElementInvisible(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(xpathLocator)));
 	}
 	
 	public void waitForElementInvisible(WebDriver driver, String xpathLocator, String...params) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(xpathLocator, params))));
 	}
 	
@@ -682,7 +709,7 @@ public class BasePage {
 	 * @param xpathLocator of elements to wait
 	 */
 	public void waitForAllElementsInvisible(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.invisibilityOfAllElements(getListElement(driver, xpathLocator)));
 	}
 	
@@ -692,15 +719,31 @@ public class BasePage {
 	 * @param xpathLocator of elements to wait
 	 */
 	public void waitForAllElementsToBePresenced(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(xpathLocator)));
 	}
 	
 	
-	public void waitForStaleness(WebDriver driver, String xpathLocator) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.stalenessOf(getElement(driver, xpathLocator)));
+	public boolean waitForStaleness(WebDriver driver, String xpathLocator) {
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
+		return wait.until(ExpectedConditions.stalenessOf(driver.findElement(getByXpath(xpathLocator))));
 	}
+	
+	public boolean waitForStaleness(WebDriver driver, String xpathLocator, String...params) {
+		WebDriverWait wait = new WebDriverWait(driver,GlobalConstants.LONG_TIMEOUT);
+		return wait.until(ExpectedConditions.stalenessOf(driver.findElement(getByXpath(getDynamicLocator(xpathLocator, params)))));
+	}
+	
+	public String getMultipleFileNames(String... fileNames) {
+		String fullName = "";
+		for (String file:fileNames) {
+			fullName = fullName+file+"\n";
+		}
+		fullName = fullName.trim();
+		return GlobalConstants.UPLOAD_FOLDER_PATH+fullName;
+	}
+	
+	
 	
 	/**
 	 * Create a random number
@@ -802,4 +845,15 @@ public class BasePage {
 		openBrowser(driver, url);
 		return PageGeneratorManager.getUserHomePage(driver);
 	}
+	
+	public void clickAdminSideMenuItem(WebDriver driver, String item) {
+		waitForElementClickable(driver, AdminBasePageUI.DYNAMIC_SIDE_MENU_ITEM, item);
+		clickElement(driver, AdminBasePageUI.DYNAMIC_SIDE_MENU_ITEM, item);
+	}
+	
+	public void clickAdminSideMenuSubItem(WebDriver driver, String item) {
+		waitForElementClickable(driver, AdminBasePageUI.DYNAMIC_SIDE_SUB_MENU_ITEM, item);
+		clickElement(driver, AdminBasePageUI.DYNAMIC_SIDE_SUB_MENU_ITEM, item);
+	}
+	
 }

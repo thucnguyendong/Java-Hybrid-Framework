@@ -3,7 +3,6 @@ package pageObjects.nopcommerce.admin;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageUI.nopcommerce.admin.AdminLoginPageUI;
 

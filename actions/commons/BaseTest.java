@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
+	protected String projectPath = System.getProperty("user.dir");
 	private String chromeVersion = "93.0.4577.63";
 	protected String userUrl,adminUrl;
 	

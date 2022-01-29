@@ -26,9 +26,7 @@ public class TC_Login extends BaseTest {
 	String userPassword;
 	String adminEmailAddress = "admin@yourstore.com";
 	String adminPassword="admin";
-	
-	String projectPath = System.getProperty("user.dir");
-	
+		
 	@BeforeTest
 	public void beforeTest() {
 		setEnvironmentURL("DEV");

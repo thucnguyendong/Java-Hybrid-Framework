@@ -18,6 +18,8 @@ import pageObjects.nopcommerce.portal.myweb.UserOrderPageObject;
 import pageObjects.nopcommerce.portal.myweb.UserRewardPointPageObject;
 import pageObjects.nopcommerce.admin.AdminDashboardPageObject;
 import pageObjects.nopcommerce.admin.AdminLoginPageObject;
+import pageObjects.nopcommerce.admin.AdminProductDetailPageObject;
+import pageObjects.nopcommerce.admin.AdminProductsPageObject;
 
 public class PageGeneratorManager {
 	public static UserHomePageObject getUserHomePage(WebDriver driver) {
@@ -82,5 +84,13 @@ public class PageGeneratorManager {
 
 	public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
 		return new AdminDashboardPageObject(driver);
+	}
+	
+	public static AdminProductsPageObject getAdminProductsPage(WebDriver driver) {
+		return new AdminProductsPageObject(driver);
+	}
+	
+	public static AdminProductDetailPageObject getAdminProductDetailPage(WebDriver driver) {
+		return new AdminProductDetailPageObject(driver);
 	}
 }
