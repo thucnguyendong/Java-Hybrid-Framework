@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageObjects.nopcommerce.portal.UserHomePageObject;
 import pageObjects.nopcommerce.portal.UserLoginPageObject;
@@ -31,9 +32,8 @@ public class TC_Change_Password extends BaseTest {
 	
 	@BeforeTest
 	public void beforeTest() {
-		driver = getBrowserDriver("chrome");
+		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
-		homePage.openHomePage();
 	}
 	
 	@BeforeClass

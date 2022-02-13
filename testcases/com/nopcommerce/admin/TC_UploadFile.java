@@ -1,10 +1,6 @@
 package com.nopcommerce.admin;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-
-import java.io.File;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -31,9 +27,8 @@ public class TC_UploadFile extends BaseTest {
 	@BeforeTest
 	public void beforeTest() {
 		setEnvironmentURL("DEV");
-		driver = getBrowserDriver("chrome");
+		driver = getBrowserDriver("chrome",adminUrl);
 		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
-		adminLoginPage.openAdminPage(driver,adminUrl);
 		adminDashboardPage = adminLoginPage.loginAsAdmin(adminEmailAddress, adminPassword);
 	}
 	

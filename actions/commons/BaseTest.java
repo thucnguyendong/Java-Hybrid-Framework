@@ -73,7 +73,7 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		return driver;
 	}
-	protected WebDriver getBrowserDriver(String browserName) {
+	protected WebDriver getBrowserDriver(String browserName, String url) {
 		if (browserName.equals("chrome")){
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -103,6 +103,7 @@ public class BaseTest {
 		}
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		driver.get(url);
 		return driver;
 	}
 	

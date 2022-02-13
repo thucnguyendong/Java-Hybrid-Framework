@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="NopCommerce.User">
+<suite parallel = "tests" name="NopCommerce.User" thread-count = "3">
+  <listeners>
+  	<listener class-name= "listenerConfig.MethodListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name= "listenerConfig.TestListener"/>
+  </listeners>
   <test name="Run on chrome">
   	<parameter name = "browser" value ="chrome"></parameter>
     <classes>
@@ -16,13 +22,6 @@
   
   <test name="Run on Edge">
   	<parameter name = "browser" value ="edge"></parameter>
-    <classes>
-      <class name="com.nopcommerce.user.TC_Register"/>
-    </classes>
-  </test> <!-- Test -->
-  
-   <test name="Run on coc coc">
-  	<parameter name = "browser" value ="coc coc"></parameter>
     <classes>
       <class name="com.nopcommerce.user.TC_Register"/>
     </classes>

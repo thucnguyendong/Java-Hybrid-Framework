@@ -2,6 +2,9 @@
 <suite parallel="false" name="NopCommerce.User">
   <listeners>
   	<listener class-name= "listenerConfig.MethodListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="listenerConfig.ExtentReportListenerV2" />
   </listeners>
   <parameter name = "url" value ="https://www.facebook.com/login"></parameter>
   <test name="Run on chrome">

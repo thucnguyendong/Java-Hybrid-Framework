@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageObjects.nopcommerce.portal.UserHomePageObject;
 import pageObjects.nopcommerce.portal.UserProductPageObject;
@@ -32,9 +33,8 @@ public class TC_Review_Product extends BaseTest {
 	
 	@BeforeTest
 	public void beforeTest() {
-		driver = getBrowserDriver("chrome");
+		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
-		homePage.openHomePage();
 	}
 	
 	@BeforeClass

@@ -15,9 +15,8 @@ public class TC_AssertAndVerify extends BaseTest {
 	@Parameters({"browser","url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
-		driver = getBrowserDriver(browserName);	
+		driver = getBrowserDriver(browserName,url);	
 		registerPage = PageGeneratorManager.getRegisterPage(driver);
-		registerPage.openBrowser(driver, url);
 	}
 	
 	@Test

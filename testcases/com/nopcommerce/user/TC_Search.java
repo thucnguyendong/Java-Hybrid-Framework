@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageObjects.nopcommerce.portal.UserHomePageObject;
 import pageObjects.nopcommerce.portal.UserSearchPageObject;
@@ -21,9 +22,8 @@ public class TC_Search extends BaseTest {
 	
 	@BeforeClass
 	public void beforeClass() {
-		driver = getBrowserDriver("chrome");
+		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
-		homePage.openHomePage();
 	}
 	
 	@Test
