@@ -37,5 +37,31 @@
 	<classpathentry kind="lib" path="Extent Report V2/mongodb-driver-3.0.4.jar"/>
 	<classpathentry kind="lib" path="Extent Report V2/mongodb-driver-core-3.0.4.jar"/>
 	<classpathentry kind="lib" path="Extent Report V2/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/bson-3.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/mongodb-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/mongodb-driver-core-3.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/log4JLib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/log4JLib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/log4JLib/log4j-1.2.16-sources.jar"/>
+	<classpathentry kind="lib" path="lib/reportNGLib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/reportNGLib/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="lib/reportNGLib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/reportNGLib/velocity-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/commons-codec-1.13.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/commons-collections4-4.3.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/commons-compress-1.20.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/commons-io-2.7.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/commons-lang3-3.11.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/httpclient5-5.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/httpcore5-5.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/jarchivelib-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/jsoup-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="lib/webDriverManagerLib/webdrivermanager-4.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

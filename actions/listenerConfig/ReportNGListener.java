@@ -12,10 +12,9 @@ import org.testng.ITestResult;
 
 import com.nopcommerce.user.TC_Register;
 
-public class TestListener implements ITestListener {
-	
+public class ReportNGListener implements ITestListener {
 	String projectLocation = System.getProperty("user.dir")+File.separator+"screenshotImg"+File.separator;
-	WebDriver driver;
+
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -24,23 +23,15 @@ public class TestListener implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		Object testClass = result.getInstance();
-		driver = ((TC_Register)testClass).getWebdriver();
-		TakesScreenshot scrShot = (TakesScreenshot) driver;
-		File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
-		File desFile = new File(projectLocation+result.getName()+".png");
-		try {
-			FileUtils.copyFile(srcFile, desFile);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		Object testClass = result.getInstance();
-		driver = ((TC_Register)testClass).getWebdriver();
+		WebDriver driver = ((TC_Register)testClass).getWebdriver();
 		TakesScreenshot scrShot = (TakesScreenshot) driver;
 		File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 		File desFile = new File(projectLocation+result.getName()+".png");
@@ -49,6 +40,7 @@ public class TestListener implements ITestListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override

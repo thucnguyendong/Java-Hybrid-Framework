@@ -63,7 +63,7 @@ public class TC_Register extends BaseTest {
 		log.info("Step 3: Click Register Button");
 		registerPage.clickRegisterButton();
 		log.info("Step 4: Verify email field");
-		verifyEquals(registerPage.getEmailErrorMessage(), "Wrong email");
+		verifyEquals(registerPage.getEmailErrorMessage(), "Wrong email 1");
 	}
 	
 	//@Test
