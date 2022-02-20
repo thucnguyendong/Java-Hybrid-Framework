@@ -4,7 +4,7 @@
   	<listener class-name= "listenerConfig.MethodListener"/>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-    <listener class-name= "listenerConfig.TestListener"/>
+    <listener class-name= "listenerConfig.ReportNGListener"/>
   </listeners>
   <test name="Run on chrome">
   	<parameter name = "browser" value ="chrome"></parameter>

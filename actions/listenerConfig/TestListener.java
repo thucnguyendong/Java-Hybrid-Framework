@@ -10,7 +10,9 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.nopcommerce.user.TC_Register;
+import com.nopcommerce.user.TC_Register_Log4J;
+
+import commons.BaseTest;
 
 public class TestListener implements ITestListener {
 	
@@ -25,7 +27,7 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		Object testClass = result.getInstance();
-		driver = ((TC_Register)testClass).getWebdriver();
+		driver = ((BaseTest)testClass).getWebdriver();
 		TakesScreenshot scrShot = (TakesScreenshot) driver;
 		File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 		File desFile = new File(projectLocation+result.getName()+".png");
@@ -40,7 +42,7 @@ public class TestListener implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		Object testClass = result.getInstance();
-		driver = ((TC_Register)testClass).getWebdriver();
+		driver = ((BaseTest)testClass).getWebdriver();
 		TakesScreenshot scrShot = (TakesScreenshot) driver;
 		File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 		File desFile = new File(projectLocation+result.getName()+".png");
