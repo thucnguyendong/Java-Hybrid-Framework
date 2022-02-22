@@ -10,13 +10,11 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.nopcommerce.user.TC_Register_Log4J;
-
 import commons.BaseTest;
 
 public class TestListener implements ITestListener {
 	
-	String projectLocation = System.getProperty("user.dir")+File.separator+"screenshotImg"+File.separator;
+	String projectLocation = System.getProperty("user.dir")+File.separator+"reportScrShoot"+File.separator;
 	WebDriver driver;
 	@Override
 	public void onTestStart(ITestResult result) {

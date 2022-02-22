@@ -2,7 +2,7 @@ package reportConfig;
 
 import com.relevantcodes.extentreports.ExtentReports;
 
-public class ExtentManager {
+public class ExtentManagerV2 {
 
 	private static ExtentReports extent;
 

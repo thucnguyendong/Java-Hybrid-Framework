@@ -17,7 +17,7 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageObjects.nopcommerce.portal.UserHomePageObject;
 import pageObjects.nopcommerce.portal.UserRegisterPageObject;
-import reportConfig.ExtentTestManager;
+import reportConfig.ExtentTestManagerV2;
 
 public class TC_Register extends BaseTest {
 	private WebDriver driver;
@@ -43,69 +43,69 @@ public class TC_Register extends BaseTest {
 	
 	@Test
 	public void TC_01_Register_Empty_Data(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_01_Register_Empty_Data");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case 1: Register with empty data");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 1: Click Register Link");
+		ExtentTestManagerV2.startTest(method.getName(), "TC_01_Register_Empty_Data");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Test Case 1: Register with empty data");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 1: Click Register Link");
 		registerPage = homePage.clickRegisterLink();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 2: Click Register Button");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 2: Click Register Button");
 		registerPage.clickRegisterButton();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 3: Verify all fields and error");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 3: Verify all fields and error");
 		verifyEquals(registerPage.getFirstNameErrorMessage(), "First name is required.");
 		verifyEquals(registerPage.getLastNameErrorMessage(), "Last name is required.");
 		verifyEquals(registerPage.getEmailErrorMessage(), "Email is required.");
 		verifyEquals(registerPage.getPasswordErrorMessage(), "Password is required.");
 		verifyEquals(registerPage.getConfirmPasswordErrorMessage(), "Password is required.");
-		ExtentTestManager.endTest();
+		ExtentTestManagerV2.endTest();
 	}
 	
 	
 	@Test
 	public void TC_02_Register_Invalid_Email(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_02_Register_Invalid_Email");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case 2: Register with invalid email");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 1: Click Register Link");
+		ExtentTestManagerV2.startTest(method.getName(), "TC_02_Register_Invalid_Email");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Test Case 2: Register with invalid email");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 1: Click Register Link");
 		registerPage = homePage.clickRegisterLink();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 2: Click input invalid email format");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 2: Click input invalid email format");
 		registerPage.inputEmail("Test123");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 3: Click Register Button");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 3: Click Register Button");
 		registerPage.clickRegisterButton();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 4: Verify email field");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 4: Verify email field");
 		verifyEquals(registerPage.getEmailErrorMessage(), "Wrong email 1");
-		ExtentTestManager.endTest();
+		ExtentTestManagerV2.endTest();
 	}
 	
 	//@Test
 	public void TC_03_Register_Sucessfully(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_03_Register_Sucessfully");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case 3: Register successfully");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 1: Click Register Link");
+		ExtentTestManagerV2.startTest(method.getName(), "TC_03_Register_Sucessfully");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Test Case 3: Register successfully");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 1: Click Register Link");
 		registerPage = homePage.clickRegisterLink();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 2: Select radio button Male");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 2: Select radio button Male");
 		registerPage.selectMaleGender();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 3: Input First Name");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 3: Input First Name");
 		registerPage.inputFirstName(firstName);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 4: Input Last Name");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 4: Input Last Name");
 		registerPage.inputLastName(lastName);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 5: Select Birthday Date: day, month, year");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 5: Select Birthday Date: day, month, year");
 		registerPage.selectDay(day);
 		registerPage.selectMonth(month);
 		registerPage.selectYear(year);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 5: Input company name");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 5: Input company name");
 		registerPage.inputCompany(company);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 6: Input email address");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 6: Input email address");
 		registerPage.inputEmail(emailAddress);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 7: Input password");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 7: Input password");
 		registerPage.inputPassword(password);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 8: Input confirm password");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 8: Input confirm password");
 		registerPage.inputConfirmPassword(confirmPassword);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 9: Click Register button");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 9: Click Register button");
 		registerPage.clickRegisterButton();
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 10: Verify register's success message");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 10: Verify register's success message");
 		assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Step 11: Click log out link");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Step 11: Click log out link");
 		homePage =registerPage.clickLogOutLink();
 		homePage.sleepInSecond(1);
-		ExtentTestManager.endTest();
+		ExtentTestManagerV2.endTest();
 	}
 	
 	//@Test
@@ -149,7 +149,7 @@ public class TC_Register extends BaseTest {
 	
 	@AfterClass
 	public void afterClass() {
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Post-condition: Close browser");
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Post-condition: Close browser");
 		driver.quit();
 	}	
 	

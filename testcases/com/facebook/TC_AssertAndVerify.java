@@ -17,13 +17,21 @@ public class TC_AssertAndVerify extends BaseTest {
 	public void beforeClass(String browserName, String url) {
 		driver = getBrowserDriver(browserName,url);	
 		registerPage = PageGeneratorManager.getRegisterPage(driver);
+		registerPage.clickRegisterLink();
 	}
 	
 	@Test
-	public void TC_01_Assert() {	
-		registerPage.clickRegisterLink();
+	public void TC_01_Assert_True() {	
 		verifyTrue(registerPage.isEmailTextboxDisplayed());
-		verifyTrue(registerPage.isConfirmEmailTextboxDisplayed());
+	}
+	
+	@Test
+	public void TC_02_Assert_False() {	
+		verifyFalse(registerPage.isConfirmEmailTextboxDisplayed());
+	}
+	
+	@Test
+	public void TC_03_Fail() {	
 		verifyFalse(registerPage.isLoginButtonNotDisplayed());
 	}
 	

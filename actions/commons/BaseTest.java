@@ -1,10 +1,15 @@
 package commons;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,6 +26,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 	private WebDriver driver;
 	protected String projectPath = System.getProperty("user.dir");
+	private String screenShotLocation = projectPath+File.separator+"extentReportScrShoot"+File.separator;
 	private String chromeVersion = "93.0.4577.63";
 	protected String userUrl,adminUrl;
 	protected final Log log;
@@ -188,14 +194,14 @@ public class BaseTest {
 	@BeforeSuite
 	public void beforeSuit(){
 		System.out.println("---------- START delete file in folder ----------");
-		deleteAllFileInFolder();
+		deleteAllFileInFolder("extentReportScrShoot");
 		System.out.println("---------- END delete file in folder ----------");
 	}
 
-	public void deleteAllFileInFolder() {
+	public void deleteAllFileInFolder(String fileName) {
 		try {
 			String workingDir = System.getProperty("user.dir");
-			String pathFolderDownload = workingDir + "\\reportScrShoot";
+			String pathFolderDownload = workingDir + File.separator+fileName;
 			File file = new File(pathFolderDownload);
 			File[] listOfFiles = file.listFiles();
 			for (int i = 0; i < listOfFiles.length; i++) {
@@ -205,6 +211,31 @@ public class BaseTest {
 			}
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
+		}
+	}
+	
+	public String captureScreenshoot(WebDriver driver, String screenshotName) {
+		try {
+			Calendar calendar = Calendar.getInstance();
+			SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+			TakesScreenshot scrShot = (TakesScreenshot) driver;
+			File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+			String srcShootPath = screenShotLocation+screenshotName+"_"+formater.format(calendar.getTime())+".png";
+			FileUtils.copyFile(srcFile, new File(srcShootPath));
+			return srcShootPath;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.getMessage();
+		}
+	}
+	
+	public String saveScreenShootAsBase64(WebDriver driver) {
+		try {
+			TakesScreenshot scrShot = (TakesScreenshot) driver;
+			return "data:image/png;base64,"+scrShot.getScreenshotAs(OutputType.BASE64);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.getMessage();
 		}
 	}
 }

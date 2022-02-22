@@ -1,12 +1,7 @@
 package listenerConfig;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -15,9 +10,8 @@ import org.testng.Reporter;
 
 import commons.BaseTest;
 
-public class ReportNGListener implements ITestListener {
-	String projectLocation = System.getProperty("user.dir")+File.separator+"reportScrShoot"+File.separator;
-
+public class ReportNGListener extends BaseTest implements ITestListener {
+	
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -75,30 +69,5 @@ public class ReportNGListener implements ITestListener {
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	public String captureScreenshoot(WebDriver driver, String screenshotName) {
-		try {
-			Calendar calendar = Calendar.getInstance();
-			SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
-			TakesScreenshot scrShot = (TakesScreenshot) driver;
-			File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
-			String srcShootPath = projectLocation+screenshotName+"_"+formater.format(calendar.getTime())+".png";
-			FileUtils.copyFile(srcFile, new File(srcShootPath));
-			return srcShootPath;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return e.getMessage();
-		}
-	}
-	
-	public String saveScreenShootAsBase64(WebDriver driver) {
-		try {
-			TakesScreenshot scrShot = (TakesScreenshot) driver;
-			return "data:image/png;base64,"+scrShot.getScreenshotAs(OutputType.BASE64);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return e.getMessage();
-		}
 	}
 }

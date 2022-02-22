@@ -5,9 +5,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExtentTestManager {
+public class ExtentTestManagerV2 {
 	static Map<Integer, ExtentTest> extentTestMap = new HashMap<Integer, ExtentTest>();
-	static ExtentReports extent = ExtentManager.getReporter();
+	static ExtentReports extent = ExtentManagerV2.getReporter();
 
 	public static synchronized ExtentTest getTest() {
 		return (ExtentTest) extentTestMap.get((int) (long) (Thread.currentThread().getId()));

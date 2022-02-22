@@ -12,12 +12,6 @@
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="lib" path="lib/testng-6.14.3.jar" sourcepath="lib/testng-6.14.3-sources.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.141.59.jar" sourcepath="lib/client-combined-3.141.59-sources.jar"/>
-	<classpathentry kind="lib" path="lib/Extent Report V2/bson-3.0.4.jar"/>
-	<classpathentry kind="lib" path="lib/Extent Report V2/extentreports-2.41.2.jar"/>
-	<classpathentry kind="lib" path="lib/Extent Report V2/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="lib/Extent Report V2/jsoup-1.8.3.jar"/>
-	<classpathentry kind="lib" path="lib/Extent Report V2/mongodb-driver-3.0.4.jar"/>
-	<classpathentry kind="lib" path="lib/Extent Report V2/mongodb-driver-core-3.0.4.jar"/>
 	<classpathentry kind="lib" path="lib/Extent Report V2/sqlite-jdbc-3.8.11.1.jar"/>
 	<classpathentry kind="lib" path="lib/log4JLib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/log4JLib/log4j-1.2.16.jar"/>
@@ -38,5 +32,15 @@
 	<classpathentry kind="lib" path="lib/webDriverManagerLib/jsoup-1.13.1.jar"/>
 	<classpathentry kind="lib" path="lib/webDriverManagerLib/slf4j-api-1.7.30.jar"/>
 	<classpathentry kind="lib" path="lib/webDriverManagerLib/webdrivermanager-4.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/bson-3.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/extentreports-3.1.5.jar" sourcepath="lib/Extent Report V3/extentreports-3.1.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/mongodb-driver-3.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V3/mongodb-driver-core-3.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V2/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="lib/Extent Report V4/extentreports-4.0.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

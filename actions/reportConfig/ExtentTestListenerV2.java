@@ -11,7 +11,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import commons.BaseTest;
 
-public class ExtentTestListener extends BaseTest implements ITestListener {
+public class ExtentTestListenerV2 extends BaseTest implements ITestListener {
 
 	@Override
 	public void onStart(ITestContext context) {
@@ -20,8 +20,8 @@ public class ExtentTestListener extends BaseTest implements ITestListener {
 
 	@Override
 	public void onFinish(ITestContext context) {
-		ExtentTestManager.endTest();
-		ExtentManager.getReporter().flush();
+		ExtentTestManagerV2.endTest();
+		ExtentManagerV2.getReporter().flush();
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class ExtentTestListener extends BaseTest implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		ExtentTestManager.getTest().log(LogStatus.PASS, "Test passed");
+		ExtentTestManagerV2.getTest().log(LogStatus.PASS, "Test passed");
 	}
 
 	@Override
@@ -38,12 +38,12 @@ public class ExtentTestListener extends BaseTest implements ITestListener {
 		Object testClass = result.getInstance();
 		WebDriver webDriver = ((BaseTest) testClass).getWebdriver();
 		String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);
-		ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed", ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+		ExtentTestManagerV2.getTest().log(LogStatus.FAIL, "Test Failed", ExtentTestManagerV2.getTest().addBase64ScreenShot(base64Screenshot));
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+		ExtentTestManagerV2.getTest().log(LogStatus.SKIP, "Test Skipped");
 	}
 
 	@Override
