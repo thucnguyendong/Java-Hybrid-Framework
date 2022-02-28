@@ -1,6 +1,7 @@
 package commons;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -19,6 +20,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -195,6 +197,7 @@ public class BaseTest {
 	public void beforeSuit(){
 		System.out.println("---------- START delete file in folder ----------");
 		deleteAllFileInFolder("extentReportScrShoot");
+		deleteAllFileInFolder("allure-json");
 		System.out.println("---------- END delete file in folder ----------");
 	}
 
@@ -237,5 +240,73 @@ public class BaseTest {
 			e.printStackTrace();
 			return e.getMessage();
 		}
+	}
+	
+	
+	protected void closeBrowserAndDriver() {
+		String cmd = "";
+		try {
+			String osName = System.getProperty("os.name").toLowerCase();
+			log.info("OS name = " + osName);
+
+			String driverInstanceName = driver.toString().toLowerCase();
+			log.info("Driver instance name = " + osName);
+
+			if (driverInstanceName.contains("chrome")) {
+				if (osName.contains("window")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq chromedriver*\"";
+				} else {
+					cmd = "pkill chromedriver";
+				}
+			} else if (driverInstanceName.contains("internetexplorer")) {
+				if (osName.contains("window")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq IEDriverServer*\"";
+				}
+			} else if (driverInstanceName.contains("firefox")) {
+				if (osName.contains("windows")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq geckodriver*\"";
+				} else {
+					cmd = "pkill geckodriver";
+				}
+			} else if (driverInstanceName.contains("edge")) {
+				if (osName.contains("window")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq msedgedriver*\"";
+				} else {
+					cmd = "pkill msedgedriver";
+				}
+			} else if (driverInstanceName.contains("opera")) {
+				if (osName.contains("window")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq operadriver*\"";
+				} else {
+					cmd = "pkill operadriver";
+				}
+			} else if (driverInstanceName.contains("safari")) {
+				if (osName.contains("mac")) {
+					cmd = "pkill safaridriver";
+				}
+			}
+
+			if (driver != null) {
+				driver.manage().deleteAllCookies();
+				driver.quit();
+			}
+		} catch (Exception e) {
+			log.info(e.getMessage());
+		} finally {
+			try {
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@AfterSuite(alwaysRun = true)
+	protected void cleanExecutableDriver() {
+		log.info("Close all drivers after suite");
+		closeBrowserAndDriver();
 	}
 }

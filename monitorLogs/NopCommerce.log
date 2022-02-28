@@ -1049,3 +1049,189 @@
 [INFO ] [2022-02-21 23:25:37,089]  -------------------------- PASSED -------------------------- 
 [INFO ] [2022-02-21 23:25:37,108]  -------------------------- PASSED -------------------------- 
 [INFO ] [2022-02-21 23:25:42,155]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-26 22:29:05,705]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-26 22:29:05,796]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-26 22:29:10,839]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-27 00:24:51,019] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-27 00:24:54,108] Test Case 1: Register with empty data
+[INFO ] [2022-02-27 00:24:54,108] Step 1: Click Register Link
+[INFO ] [2022-02-27 00:24:54,629] Step 2: Click Register Button
+[INFO ] [2022-02-27 00:24:54,681] Step 3: Verify all fields and error
+[INFO ] [2022-02-27 00:24:54,711]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 00:24:54,737]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 00:24:54,765]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 00:24:54,790]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 00:24:54,817]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 00:24:54,850] Test Case 2: Register with invalid email
+[INFO ] [2022-02-27 00:24:54,850] Step 1: Click Register Link
+[INFO ] [2022-02-27 00:24:55,248] Step 2: Click input invalid email format
+[INFO ] [2022-02-27 00:24:55,315] Step 3: Click Register Button
+[INFO ] [2022-02-27 00:24:55,353] Step 4: Verify email field
+[INFO ] [2022-02-27 00:24:55,379]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 00:24:55,403] Post-condition: Close browser
+[INFO ] [2022-02-27 01:21:23,524] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-27 01:21:26,616] Test Case 1: Register with empty data
+[INFO ] [2022-02-27 01:21:26,616] Step 1: Click Register Link
+[INFO ] [2022-02-27 01:21:27,092] Step 2: Click Register Button
+[INFO ] [2022-02-27 01:21:27,145] Step 3: Verify all fields and error
+[INFO ] [2022-02-27 01:21:27,174]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 01:21:27,202]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 01:21:27,230]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 01:21:27,256]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 01:21:27,282]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 01:21:27,315] Test Case 2: Register with invalid email
+[INFO ] [2022-02-27 01:21:27,316] Step 1: Click Register Link
+[INFO ] [2022-02-27 01:21:27,722] Step 2: Click input invalid email format
+[INFO ] [2022-02-27 01:21:27,786] Step 3: Click Register Button
+[INFO ] [2022-02-27 01:21:27,825] Step 4: Verify email field
+[INFO ] [2022-02-27 01:21:27,850]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 01:21:27,852] Post-condition: Close browser
+[INFO ] [2022-02-27 09:57:37,888]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 09:57:37,942]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 09:57:37,970]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 09:57:37,996]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 09:57:38,023]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 09:57:38,613]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-27 10:07:31,844]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:07:31,872]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:07:31,899]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:07:31,926]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:07:31,952]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:07:32,520]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-27 10:09:07,676] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-27 10:09:09,754] Test Case 1: Register with empty data
+[INFO ] [2022-02-27 10:09:09,754] Step 1: Click Register Link
+[INFO ] [2022-02-27 10:09:10,238] Step 2: Click Register Button
+[INFO ] [2022-02-27 10:09:10,289] Step 3: Verify all fields and error
+[INFO ] [2022-02-27 10:09:10,320]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:09:10,346]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:09:10,374]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:09:10,400]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:09:10,426]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:09:10,459] Test Case 2: Register with invalid email
+[INFO ] [2022-02-27 10:09:10,459] Step 1: Click Register Link
+[INFO ] [2022-02-27 10:09:10,857] Step 2: Click input invalid email format
+[INFO ] [2022-02-27 10:09:10,920] Step 3: Click Register Button
+[INFO ] [2022-02-27 10:09:10,960] Step 4: Verify email field
+[INFO ] [2022-02-27 10:09:10,986]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 10:09:10,991] Post-condition: Close browser
+[INFO ] [2022-02-27 11:03:38,985]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:39,014]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:39,042]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:39,071]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:39,098]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:39,752]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-27 11:03:41,435]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:41,454]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:41,474]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:41,492]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:41,511]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:42,709]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-27 11:03:48,953]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:48,980]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:49,005]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:49,028]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:49,054]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-27 11:03:49,660]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-02-28 22:34:03,805] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-28 22:34:07,837] Test Case 1: Register with empty data
+[INFO ] [2022-02-28 22:34:07,837] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:34:08,343] Step 2: Click Register Button
+[INFO ] [2022-02-28 22:34:08,395] Step 3: Verify all fields and error
+[INFO ] [2022-02-28 22:34:08,424]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:34:08,451]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:34:08,477]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:34:08,504]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:34:08,530]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:34:08,645] Test Case 2: Register with invalid email
+[INFO ] [2022-02-28 22:34:08,645] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:34:09,062] Step 2: Click input invalid email format
+[INFO ] [2022-02-28 22:34:09,125] Step 3: Click Register Button
+[INFO ] [2022-02-28 22:34:09,164] Step 4: Verify email field
+[INFO ] [2022-02-28 22:34:09,189]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:34:09,277] Post-condition: Close browser chrome
+[INFO ] [2022-02-28 22:34:09,277] OS name = windows 10
+[INFO ] [2022-02-28 22:34:09,277] Driver instance name = windows 10
+[INFO ] [2022-02-28 22:39:55,674] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-28 22:39:58,726] Test Case 1: Register with empty data
+[INFO ] [2022-02-28 22:39:58,726] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:39:59,205] Step 2: Click Register Button
+[INFO ] [2022-02-28 22:39:59,258] Step 3: Verify all fields and error
+[INFO ] [2022-02-28 22:39:59,288]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:39:59,316]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:39:59,344]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:39:59,372]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:39:59,400]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:39:59,510] Test Case 2: Register with invalid email
+[INFO ] [2022-02-28 22:39:59,510] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:39:59,920] Step 2: Click input invalid email format
+[INFO ] [2022-02-28 22:39:59,982] Step 3: Click Register Button
+[INFO ] [2022-02-28 22:40:00,023] Step 4: Verify email field
+[INFO ] [2022-02-28 22:40:00,049]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:40:00,137] Post-condition: Close browser chrome
+[INFO ] [2022-02-28 22:40:00,137] OS name = windows 10
+[INFO ] [2022-02-28 22:40:00,137] Driver instance name = windows 10
+[INFO ] [2022-02-28 22:40:00,814] Run after suite
+[INFO ] [2022-02-28 22:40:00,814] OS name = windows 10
+[INFO ] [2022-02-28 22:40:00,815] Driver instance name = windows 10
+[INFO ] [2022-02-28 22:40:00,815] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-02-28 22:41:42,899] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-28 22:41:45,906] Test Case 1: Register with empty data
+[INFO ] [2022-02-28 22:41:45,906] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:41:46,416] Step 2: Click Register Button
+[INFO ] [2022-02-28 22:41:46,468] Step 3: Verify all fields and error
+[INFO ] [2022-02-28 22:41:46,500]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:41:46,527]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:41:46,554]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:41:46,581]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:41:46,607]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:41:46,726] Test Case 2: Register with invalid email
+[INFO ] [2022-02-28 22:41:46,726] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:41:47,127] Step 2: Click input invalid email format
+[INFO ] [2022-02-28 22:41:47,192] Step 3: Click Register Button
+[INFO ] [2022-02-28 22:41:47,232] Step 4: Verify email field
+[INFO ] [2022-02-28 22:41:47,256]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:41:47,375] Close all drivers after suite
+[INFO ] [2022-02-28 22:41:47,375] OS name = windows 10
+[INFO ] [2022-02-28 22:41:47,375] Driver instance name = windows 10
+[INFO ] [2022-02-28 22:45:48,942] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-28 22:45:51,908] Test Case 1: Register with empty data
+[INFO ] [2022-02-28 22:45:51,908] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:45:52,422] Step 2: Click Register Button
+[INFO ] [2022-02-28 22:45:52,474] Step 3: Verify all fields and error
+[INFO ] [2022-02-28 22:45:52,503]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:45:52,530]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:45:52,558]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:45:52,585]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:45:52,610]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:45:52,750] Test Case 2: Register with invalid email
+[INFO ] [2022-02-28 22:45:52,750] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:45:53,149] Step 2: Click input invalid email format
+[INFO ] [2022-02-28 22:45:53,213] Step 3: Click Register Button
+[INFO ] [2022-02-28 22:45:53,252] Step 4: Verify email field
+[INFO ] [2022-02-28 22:45:53,277]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:45:53,411] Close all drivers after suite
+[INFO ] [2022-02-28 22:45:53,411] OS name = windows 10
+[INFO ] [2022-02-28 22:45:53,411] Driver instance name = windows 10
+[INFO ] [2022-02-28 22:47:42,590] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-02-28 22:47:45,518] Test Case 1: Register with empty data
+[INFO ] [2022-02-28 22:47:45,518] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:47:46,009] Step 2: Click Register Button
+[INFO ] [2022-02-28 22:47:46,060] Step 3: Verify all fields and error
+[INFO ] [2022-02-28 22:47:46,090]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:47:46,119]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:47:46,146]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:47:46,172]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:47:46,197]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:47:46,309] Test Case 2: Register with invalid email
+[INFO ] [2022-02-28 22:47:46,309] Step 1: Click Register Link
+[INFO ] [2022-02-28 22:47:46,696] Step 2: Click input invalid email format
+[INFO ] [2022-02-28 22:47:46,759] Step 3: Click Register Button
+[INFO ] [2022-02-28 22:47:46,797] Step 4: Verify email field
+[INFO ] [2022-02-28 22:47:46,822]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-28 22:47:46,952] Close all drivers after suite
+[INFO ] [2022-02-28 22:47:46,952] OS name = windows 10
+[INFO ] [2022-02-28 22:47:46,952] Driver instance name = windows 10
