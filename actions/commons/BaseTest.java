@@ -250,7 +250,7 @@ public class BaseTest {
 			log.info("OS name = " + osName);
 
 			String driverInstanceName = driver.toString().toLowerCase();
-			log.info("Driver instance name = " + osName);
+			log.info("Driver instance name = " + driverInstanceName);
 
 			if (driverInstanceName.contains("chrome")) {
 				if (osName.contains("window")) {

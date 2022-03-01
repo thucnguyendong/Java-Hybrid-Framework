@@ -1,10 +1,12 @@
 package reportConfig;
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
@@ -67,6 +69,14 @@ public class ExtentReportListenerV4 extends BaseTest implements IReporter {
 					test.assignCategory(group);
 
 				if (result.getThrowable() != null) {
+					Object testClass = result.getInstance();
+					WebDriver webDriver = ((BaseTest) testClass).getWebdriver();
+					try {
+						test.addScreenCaptureFromPath(captureScreenshoot(webDriver, result.getName()));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.getMessage();
+					}
 					test.log(status, result.getThrowable());
 				} else {
 					test.log(status, "Test " + status.toString().toLowerCase() + "ed");

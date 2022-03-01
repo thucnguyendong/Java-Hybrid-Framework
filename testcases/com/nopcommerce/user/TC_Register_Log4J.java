@@ -3,6 +3,7 @@ package com.nopcommerce.user;
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -135,4 +136,10 @@ public class TC_Register_Log4J extends BaseTest {
 		assertEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
 	}
 	
+	@Parameters("browser")
+	@AfterClass
+	public void afterClass(String browserName) {
+		log.info("Post-condition: Close browser "+browserName);
+		closeBrowserAndDriver();
+	}	
 }

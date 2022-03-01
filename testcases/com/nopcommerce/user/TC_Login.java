@@ -109,8 +109,6 @@ public class TC_Login extends BaseTest {
 		loginPage.inputEmail(emailAddress);
 		loginPage.inputPassword(password);
 		homePage=loginPage.clickLoginButton();
-		
-		homePage.clickMyAccountLink(driver);
 		assertTrue(homePage.isMyAccountLinkDisplayed());
 	}
 	

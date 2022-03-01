@@ -1,19 +1,22 @@
-[INFO ] [2022-02-28 22:47:42,590] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
-[INFO ] [2022-02-28 22:47:45,518] Test Case 1: Register with empty data
-[INFO ] [2022-02-28 22:47:45,518] Step 1: Click Register Link
-[INFO ] [2022-02-28 22:47:46,009] Step 2: Click Register Button
-[INFO ] [2022-02-28 22:47:46,060] Step 3: Verify all fields and error
-[INFO ] [2022-02-28 22:47:46,090]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-28 22:47:46,119]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-28 22:47:46,146]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-28 22:47:46,172]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-28 22:47:46,197]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-28 22:47:46,309] Test Case 2: Register with invalid email
-[INFO ] [2022-02-28 22:47:46,309] Step 1: Click Register Link
-[INFO ] [2022-02-28 22:47:46,696] Step 2: Click input invalid email format
-[INFO ] [2022-02-28 22:47:46,759] Step 3: Click Register Button
-[INFO ] [2022-02-28 22:47:46,797] Step 4: Verify email field
-[INFO ] [2022-02-28 22:47:46,822]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-28 22:47:46,952] Close all drivers after suite
-[INFO ] [2022-02-28 22:47:46,952] OS name = windows 10
-[INFO ] [2022-02-28 22:47:46,952] Driver instance name = windows 10
+[INFO ] [2022-03-02 00:43:04,027] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-02 00:43:06,948] Step 1: Click Register Link
+[INFO ] [2022-03-02 00:43:07,410] Step 2: Select radio button Male
+[INFO ] [2022-03-02 00:43:07,460] Step 3: Input First Name
+[INFO ] [2022-03-02 00:43:07,525] Step 4: Input Last Name
+[INFO ] [2022-03-02 00:43:07,589] Step 5: Select Birthday Date: day, month, year
+[INFO ] [2022-03-02 00:43:07,777] Step 5: Input company name
+[INFO ] [2022-03-02 00:43:07,838] Step 6: Input email address
+[INFO ] [2022-03-02 00:43:07,897] Step 7: Input password
+[INFO ] [2022-03-02 00:43:07,957] Step 8: Input confirm password
+[INFO ] [2022-03-02 00:43:08,016] Step 9: Click Register button
+[INFO ] [2022-03-02 00:43:08,775] Step 10: Verify register's success message
+[INFO ] [2022-03-02 00:43:08,800]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-02 00:43:08,807] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-02 00:43:10,530] Pre-condition - Step 1: Click Login Link
+[INFO ] [2022-03-02 00:43:11,067] Pre-condition - Step 2: Input login Cookies
+[INFO ] [2022-03-02 00:43:16,086] Pre-condition - Step 3: Open Home page
+[INFO ] [2022-03-02 00:43:16,117] Step 1: Verify My Account link displays
+[INFO ] [2022-03-02 00:43:16,454]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-02 00:43:16,495] Close all drivers after suite
+[INFO ] [2022-03-02 00:43:16,495] OS name = windows 10
+[INFO ] [2022-03-02 00:43:16,495] Driver instance name = chromedriver: chrome on windows (f1b7975683e1095a8712435746ff1598)

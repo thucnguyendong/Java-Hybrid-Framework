@@ -147,10 +147,10 @@ public class TC_Register extends BaseTest {
 		assertEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
 	}
 	
+	@Parameters("browser")
 	@AfterClass
-	public void afterClass() {
-		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Post-condition: Close browser");
-		driver.quit();
+	public void afterClass(String browserName) {
+		ExtentTestManagerV2.getTest().log(LogStatus.INFO, "Post-condition: Close browser "+browserName);
 	}	
 	
 }

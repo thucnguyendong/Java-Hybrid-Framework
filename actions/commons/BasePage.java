@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -72,6 +73,29 @@ public class BasePage {
 	 */	
 	public String getPageSourceCode(WebDriver driver) {
 		return driver.getPageSource();
+	}
+	
+	/** 
+	 * Get all cookies of the current page
+	 * @param driver
+	 * @return list of all cookies
+	 */	
+	public Set<Cookie> getAllCookies(WebDriver driver) {
+		return driver.manage().getCookies();
+	}
+	
+	
+	/** 
+	 * Set cookie to the current page
+	 * @param driver
+	 * @return null
+	 */	
+	public void setAllCookies(WebDriver driver, Set<Cookie> cookies) {
+		for (Cookie cookie: cookies) {
+			driver.manage().addCookie(cookie);
+		}
+		sleepInSecond(5);
+		driver.navigate().refresh();
 	}
 	
 	/** 
@@ -751,6 +775,16 @@ public class BasePage {
 	public int getRandomNumber() {
 		Random rand = new Random();
 		return rand.nextInt(999);
+	}
+	
+	/**
+	 * Create a random email
+	 * @param: prefix of the email
+	 * @param: domain name of the email
+	 * @return: generated email
+	 */	
+	public String getRandomEmail(String prefix, String domain) {
+		return prefix+getRandomNumber()+"@"+domain+".com";
 	}
 	
 	/**

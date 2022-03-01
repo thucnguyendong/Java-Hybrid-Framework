@@ -4,12 +4,12 @@
   	<listener class-name= "listenerConfig.MethodListener"/>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-    <listener class-name="reportConfig.ExtentReportListenerV2" />
   </listeners>
   <test name="Run on chrome">
   	<parameter name = "browser" value ="chrome"></parameter>
     <classes>
-      <class name="com.nopcommerce.user.TC_Register"/>
+      <class name="com.nopcommerce.commons.Common_RegisterToSystem"/>
+      <class name="com.nopcommerce.commons.Common_01_LoginToSystem"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

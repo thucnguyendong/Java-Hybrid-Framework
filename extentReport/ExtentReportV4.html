@@ -48,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Feb 21, 2022 11:25:42 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Mar 1, 2022 03:28:21 PM</span>
 				</a>
 			</li>
 			<li>
@@ -125,10 +125,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='66.667%'><span class='strong'>2</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='33.333%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -140,10 +140,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='66.667%'><span class='strong'>2</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='33.333%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -160,15 +160,15 @@
 				
 				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>TC_03_Fail</span>
-						<span class='test-time'>Feb 21, 2022 11:25:37 PM</span>
+						<span class='test-name'>TC_02_Register_Invalid_Email</span>
+						<span class='test-time'>Mar 1, 2022 03:28:20 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 21, 2022 11:25:37 PM</span>
-	<span class='label end-time'>Feb 21, 2022 11:25:42 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 5s+682ms</span>
+	<span class='label start-time'>Mar 1, 2022 03:28:20 PM</span>
+	<span class='label end-time'>Mar 1, 2022 03:28:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+369ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -182,15 +182,16 @@
 			<tbody>
 				<tr class='log' status='fail'>
 					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>11:25:42 PM</td>
-					<td class='step-details'><pre>java.lang.AssertionError: expected [false] but found [true]
+					<td class='timestamp'>3:28:21 PM</td>
+					<td class='step-details'><pre>java.lang.AssertionError: expected [Wrong email 1] but found [Wrong email]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertFalse(Assert.java:65)
-	at org.testng.Assert.assertFalse(Assert.java:75)
-	at commons.BaseTest.checkFailed(BaseTest.java:163)
-	at commons.BaseTest.verifyFalse(BaseTest.java:173)
-	at com.facebook.TC_AssertAndVerify.TC_03_Fail(TC_AssertAndVerify.java:35)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:442)
+	at commons.BaseTest.checkEquals(BaseTest.java:181)
+	at commons.BaseTest.verifyEquals(BaseTest.java:193)
+	at com.nopcommerce.user.TC_Register.TC_02_Register_Invalid_Email(TC_Register.java:73)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -204,18 +205,13 @@
 	at org.testng.TestRunner.privateRun(TestRunner.java:648)
 	at org.testng.TestRunner.run(TestRunner.java:505)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
 </pre></td>
 				</tr>
 			</tbody>
@@ -224,13 +220,13 @@
 							<ul class='screenshots'>
 								<li><img data-featherlight='Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
-System info: host: 'ADMIN', ip: '192.168.1.115', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
 Driver info: driver.version: RemoteWebDriver' width='10%' src='Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
-System info: host: 'ADMIN', ip: '192.168.1.115', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
 Driver info: driver.version: RemoteWebDriver' data-src='Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
-System info: host: 'ADMIN', ip: '192.168.1.115', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
 Driver info: driver.version: RemoteWebDriver'></li>
 							</ul>
 					</div>
@@ -239,15 +235,15 @@ Driver info: driver.version: RemoteWebDriver'></li>
 				
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
 					<div class='test-heading'>
-						<span class='test-name'>TC_01_Assert_True</span>
-						<span class='test-time'>Feb 21, 2022 11:25:37 PM</span>
+						<span class='test-name'>TC_01_Register_Empty_Data</span>
+						<span class='test-time'>Mar 1, 2022 03:28:19 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 21, 2022 11:25:37 PM</span>
-	<span class='label end-time'>Feb 21, 2022 11:25:42 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 5s+746ms</span>
+	<span class='label start-time'>Mar 1, 2022 03:28:19 PM</span>
+	<span class='label end-time'>Mar 1, 2022 03:28:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+326ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -261,41 +257,7 @@ Driver info: driver.version: RemoteWebDriver'></li>
 			<tbody>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>11:25:42 PM</td>
-					<td class='step-details'>Test passed</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
-					<div class='test-heading'>
-						<span class='test-name'>TC_02_Assert_False</span>
-						<span class='test-time'>Feb 21, 2022 11:25:37 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='test-time-info'>
-	<span class='label start-time'>Feb 21, 2022 11:25:37 PM</span>
-	<span class='label end-time'>Feb 21, 2022 11:25:42 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 5s+702ms</span>
-</div>
-	<div class='test-steps'>
-		<table class='bordered table-results'>
-			<thead>
-				<tr>
-					<th>Status</th>
-					<th>Timestamp</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>11:25:42 PM</td>
+					<td class='timestamp'>3:28:21 PM</td>
 					<td class='step-details'>Test passed</td>
 				</tr>
 			</tbody>
@@ -371,16 +333,17 @@ Driver info: driver.version: RemoteWebDriver'></li>
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Feb 21, 2022 11:25:37 PM</td>
-                                                        <td class='linked' test-id='1'>TC_03_Fail</td>
-                                                        <td><pre><pre>java.lang.AssertionError: expected [false] but found [true]
+                                                        <td>Mar 1, 2022 03:28:20 PM</td>
+                                                        <td class='linked' test-id='1'>TC_02_Register_Invalid_Email</td>
+                                                        <td><pre><pre>java.lang.AssertionError: expected [Wrong email 1] but found [Wrong email]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertFalse(Assert.java:65)
-	at org.testng.Assert.assertFalse(Assert.java:75)
-	at commons.BaseTest.checkFailed(BaseTest.java:163)
-	at commons.BaseTest.verifyFalse(BaseTest.java:173)
-	at com.facebook.TC_AssertAndVerify.TC_03_Fail(TC_AssertAndVerify.java:35)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:442)
+	at commons.BaseTest.checkEquals(BaseTest.java:181)
+	at commons.BaseTest.verifyEquals(BaseTest.java:193)
+	at com.nopcommerce.user.TC_Register.TC_02_Register_Invalid_Email(TC_Register.java:73)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -394,18 +357,13 @@ Driver info: driver.version: RemoteWebDriver'></li>
 	at org.testng.TestRunner.privateRun(TestRunner.java:648)
 	at org.testng.TestRunner.run(TestRunner.java:505)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
 </pre></pre></td>
                                                     </tr>
                                         </tbody>
@@ -432,31 +390,31 @@ Driver info: driver.version: RemoteWebDriver'></li>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 21, 2022 11:25:42 PM</div>
+					<div class='panel-lead'>Mar 1, 2022 03:28:21 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 21, 2022 11:25:42 PM</div>
+			 		<div class='panel-lead'>Mar 1, 2022 03:28:21 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 0s+34ms</div>
+					<div class='panel-lead'>0h 0m 0s+17ms</div>
 				</div>
 			</div>
 		</div>
@@ -468,11 +426,23 @@ Driver info: driver.version: RemoteWebDriver'></li>
 		<h5>TestRunner Logs</h5>
 		
 		<div class='card-panel'>
-				[INFO ] [2022-02-21 23:25:37,089]  -------------------------- PASSED -------------------------- 
+				[INFO ] [2022-03-01 15:28:20,007]  -------------------------- PASSED -------------------------- 
 <br><br>
-				[INFO ] [2022-02-21 23:25:37,108]  -------------------------- PASSED -------------------------- 
+				[INFO ] [2022-03-01 15:28:20,042]  -------------------------- PASSED -------------------------- 
 <br><br>
-				[INFO ] [2022-02-21 23:25:42,155]  -------------------------- FAILED -------------------------- 
+				[INFO ] [2022-03-01 15:28:20,069]  -------------------------- PASSED -------------------------- 
+<br><br>
+				[INFO ] [2022-03-01 15:28:20,096]  -------------------------- PASSED -------------------------- 
+<br><br>
+				[INFO ] [2022-03-01 15:28:20,121]  -------------------------- PASSED -------------------------- 
+<br><br>
+				[INFO ] [2022-03-01 15:28:20,700]  -------------------------- FAILED -------------------------- 
+<br><br>
+				[INFO ] [2022-03-01 15:28:20,744] Close all drivers after suite
+<br><br>
+				[INFO ] [2022-03-01 15:28:20,744] OS name = windows 10
+<br><br>
+				[INFO ] [2022-03-01 15:28:20,744] Driver instance name = windows 10
 <br><br>
 		</div>
 	</div>
@@ -483,7 +453,7 @@ Driver info: driver.version: RemoteWebDriver'></li>
 
 		<script>
 			var statusGroup = {
-				passParent: 2,
+				passParent: 1,
 				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
@@ -491,7 +461,7 @@ Driver info: driver.version: RemoteWebDriver'></li>
 				skipParent: 0,
 				exceptionsParent: 1,
 				
-				passChild: 2,
+				passChild: 1,
 				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
