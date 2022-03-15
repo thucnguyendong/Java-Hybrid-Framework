@@ -1525,3 +1525,181 @@ Driver info: driver.version: RemoteWebDriver
 [INFO ] [2022-03-02 00:43:16,495] Close all drivers after suite
 [INFO ] [2022-03-02 00:43:16,495] OS name = windows 10
 [INFO ] [2022-03-02 00:43:16,495] Driver instance name = chromedriver: chrome on windows (f1b7975683e1095a8712435746ff1598)
+[INFO ] [2022-03-06 09:59:43,935]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 09:59:43,969]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 09:59:43,996]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 09:59:44,023]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 09:59:44,050]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 09:59:44,662]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-06 09:59:44,700] Close all drivers after suite
+[INFO ] [2022-03-06 09:59:44,700] OS name = windows 10
+[INFO ] [2022-03-06 09:59:44,700] Driver instance name = chromedriver: chrome on windows (90cff35824263dcd362c3357cf01b43d)
+[INFO ] [2022-03-06 10:09:48,052]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:09:48,080]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:09:48,109]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:09:48,137]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:09:48,166]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:09:48,734]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-06 10:09:48,977] Close all drivers after suite
+[INFO ] [2022-03-06 10:09:48,977] OS name = windows 10
+[INFO ] [2022-03-06 10:09:48,977] Driver instance name = chromedriver: chrome on windows (002b9aad56931f4dfde489a8502092b2)
+[INFO ] [2022-03-06 10:12:24,404]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:12:24,432]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:12:24,459]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:12:24,485]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:12:24,511]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:12:25,085]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-06 10:12:25,321] Close all drivers after suite
+[INFO ] [2022-03-06 10:12:25,321] OS name = windows 10
+[INFO ] [2022-03-06 10:12:25,322] Driver instance name = chromedriver: chrome on windows (c64ced72941b0f062897c0d94ea2c846)
+[INFO ] [2022-03-06 10:27:27,312]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:27:27,339]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:27:27,366]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:27:27,392]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:27:27,418]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-06 10:27:28,009]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-06 10:27:28,244] Close all drivers after suite
+[INFO ] [2022-03-06 10:27:28,245] OS name = windows 10
+[INFO ] [2022-03-06 10:27:28,245] Driver instance name = chromedriver: chrome on windows (89ab95ed0197f4b85005f2367dd66727)
+[INFO ] [2022-03-10 20:46:37,210]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:46:37,267]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:46:37,292]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:46:37,318]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:46:37,345]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:46:37,952]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-10 20:46:38,319] Close all drivers after suite
+[INFO ] [2022-03-10 20:46:38,319] OS name = windows 10
+[INFO ] [2022-03-10 20:46:38,319] Driver instance name = chromedriver: chrome on windows (5643f0ae3538ff8e624b1219f587d116)
+[INFO ] [2022-03-10 20:49:06,508]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:49:06,535]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:49:06,562]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:49:06,587]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:49:06,617]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 20:49:07,223]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-10 20:49:07,519] Close all drivers after suite
+[INFO ] [2022-03-10 20:49:07,519] OS name = windows 10
+[INFO ] [2022-03-10 20:49:07,519] Driver instance name = chromedriver: chrome on windows (baa447472aedbe76e74813d0b8d2c5fc)
+[INFO ] [2022-03-10 21:50:29,768] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 21:50:33,212] Test Case 1: Register with empty data
+[INFO ] [2022-03-10 21:50:33,212] Step 1: Click Register Link
+[INFO ] [2022-03-10 21:50:33,691] Step 2: Click Register Button
+[INFO ] [2022-03-10 21:50:33,743] Step 3: Verify all fields and error
+[INFO ] [2022-03-10 21:50:33,773]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:50:33,801]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:50:33,828]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:50:33,855]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:50:33,881]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:50:33,929] Test Case 2: Register with invalid email
+[INFO ] [2022-03-10 21:50:33,929] Step 1: Click Register Link
+[INFO ] [2022-03-10 21:50:34,349] Step 2: Click input invalid email format
+[INFO ] [2022-03-10 21:50:34,415] Step 3: Click Register Button
+[INFO ] [2022-03-10 21:50:34,454] Step 4: Verify email field
+[INFO ] [2022-03-10 21:50:34,478]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:50:34,485] Post-condition: Close browser
+[INFO ] [2022-03-10 21:50:35,104] Close all drivers after suite
+[INFO ] [2022-03-10 21:50:35,105] OS name = windows 10
+[INFO ] [2022-03-10 21:50:35,105] Driver instance name = chromedriver: chrome on windows (null)
+[INFO ] [2022-03-10 21:50:35,106] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-03-10 21:56:50,813] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 21:56:51,592] Close all drivers after suite
+[INFO ] [2022-03-10 21:56:51,593] OS name = windows 10
+[INFO ] [2022-03-10 21:56:51,593] 
+[INFO ] [2022-03-10 21:57:46,513] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 21:57:48,662] Test Case 1: Register with empty data
+[INFO ] [2022-03-10 21:57:48,662] Step 1: Click Register Link
+[INFO ] [2022-03-10 21:57:49,134] Step 2: Click Register Button
+[INFO ] [2022-03-10 21:57:49,186] Step 3: Verify all fields and error
+[INFO ] [2022-03-10 21:57:49,215]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:57:49,242]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:57:49,269]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:57:49,296]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:57:49,321]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:57:49,354] Test Case 2: Register with invalid email
+[INFO ] [2022-03-10 21:57:49,354] Step 1: Click Register Link
+[INFO ] [2022-03-10 21:57:49,770] Step 2: Click input invalid email format
+[INFO ] [2022-03-10 21:57:49,833] Step 3: Click Register Button
+[INFO ] [2022-03-10 21:57:49,871] Step 4: Verify email field
+[INFO ] [2022-03-10 21:57:49,896]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-10 21:57:49,996] Post-condition: Close browser
+[INFO ] [2022-03-10 21:57:50,598] Close all drivers after suite
+[INFO ] [2022-03-10 21:57:50,598] OS name = windows 10
+[INFO ] [2022-03-10 21:57:50,598] Driver instance name = chromedriver: chrome on windows (null)
+[INFO ] [2022-03-10 21:57:50,599] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-03-10 21:58:00,641] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 21:58:03,596] Test Case 1: Register with empty data
+[INFO ] [2022-03-10 21:58:03,596] Step 1: Click Register Link
+[INFO ] [2022-03-10 21:58:04,107] Step 2: Click Register Button
+[INFO ] [2022-03-10 21:58:04,160] Step 3: Verify all fields and error
+[INFO ] [2022-03-10 21:58:04,190]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:58:04,217]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:58:04,245]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:58:04,272]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:58:04,297]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 21:58:04,331] Test Case 2: Register with invalid email
+[INFO ] [2022-03-10 21:58:04,331] Step 1: Click Register Link
+[INFO ] [2022-03-10 21:58:04,736] Step 2: Click input invalid email format
+[INFO ] [2022-03-10 21:58:04,801] Step 3: Click Register Button
+[INFO ] [2022-03-10 21:58:04,839] Step 4: Verify email field
+[INFO ] [2022-03-10 21:58:04,865]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-10 21:58:04,962] Post-condition: Close browser
+[INFO ] [2022-03-10 21:58:05,574] Close all drivers after suite
+[INFO ] [2022-03-10 21:58:05,574] OS name = windows 10
+[INFO ] [2022-03-10 21:58:05,574] Driver instance name = chromedriver: chrome on windows (null)
+[INFO ] [2022-03-10 21:58:05,575] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-03-10 22:00:24,995] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:00:25,662] Close all drivers after suite
+[INFO ] [2022-03-10 22:00:25,662] OS name = windows 10
+[INFO ] [2022-03-10 22:00:25,663] 
+[INFO ] [2022-03-10 22:03:27,235] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:03:27,878] Close all drivers after suite
+[INFO ] [2022-03-10 22:03:27,878] OS name = windows 10
+[INFO ] [2022-03-10 22:03:27,880] 
+[INFO ] [2022-03-10 22:05:03,348] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:05:03,997] Close all drivers after suite
+[INFO ] [2022-03-10 22:05:03,997] OS name = windows 10
+[INFO ] [2022-03-10 22:05:03,998] 
+[INFO ] [2022-03-10 22:06:32,251] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:06:32,918] Close all drivers after suite
+[INFO ] [2022-03-10 22:06:32,918] OS name = windows 10
+[INFO ] [2022-03-10 22:06:32,919] 
+[INFO ] [2022-03-10 22:14:53,602] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:14:56,931] Test Case 1: Register with empty data
+[INFO ] [2022-03-10 22:14:56,931] Step 1: Click Register Link
+[INFO ] [2022-03-10 22:14:57,434] Step 2: Click Register Button
+[INFO ] [2022-03-10 22:14:57,488] Step 3: Verify all fields and error
+[INFO ] [2022-03-10 22:14:57,518]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 22:14:57,545]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 22:14:57,574]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 22:14:57,602]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 22:14:57,630]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-10 22:14:57,682] Test Case 2: Register with invalid email
+[INFO ] [2022-03-10 22:14:57,682] Step 1: Click Register Link
+[INFO ] [2022-03-10 22:14:58,146] Step 2: Click input invalid email format
+[INFO ] [2022-03-10 22:14:58,212] Step 3: Click Register Button
+[INFO ] [2022-03-10 22:14:58,252] Step 4: Verify email field
+[INFO ] [2022-03-10 22:14:58,278]  -------------------------- FAILED -------------------------- 
+[INFO ] [2022-03-10 22:14:58,391] Post-condition: Close browser
+[INFO ] [2022-03-10 22:14:59,000] Close all drivers after suite
+[INFO ] [2022-03-10 22:14:59,000] OS name = windows 10
+[INFO ] [2022-03-10 22:14:59,000] Driver instance name = chromedriver: chrome on windows (null)
+[INFO ] [2022-03-10 22:14:59,001] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-03-10 22:21:01,602] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:21:02,300] Close all drivers after suite
+[INFO ] [2022-03-10 22:21:02,301] OS name = windows 10
+[INFO ] [2022-03-10 22:21:02,301] 
+[INFO ] [2022-03-10 22:27:23,776] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
+[INFO ] [2022-03-10 22:27:24,458] Close all drivers after suite
+[INFO ] [2022-03-10 22:27:24,459] OS name = windows 10
+[INFO ] [2022-03-10 22:27:24,460] 

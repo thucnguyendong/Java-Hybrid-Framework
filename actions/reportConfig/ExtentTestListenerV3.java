@@ -8,6 +8,9 @@ import org.testng.ITestResult;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.MediaEntityModelProvider;
+import com.aventstack.extentreports.Status;
 
 import commons.BaseTest;
 
@@ -36,17 +39,15 @@ public class ExtentTestListenerV3 extends BaseTest implements ITestListener {
 
 	@Override
 	public synchronized void onTestSuccess(ITestResult result) {
-		System.out.println((result.getMethod().getMethodName() + " passed!"));
-		test.get().pass("Test passed");
+		test.get().pass(result.getMethod().getMethodName() + " passed!");
 	}
 
 	@Override
 	public synchronized void onTestFailure(ITestResult result) {
-		System.out.println((result.getMethod().getMethodName() + " failed!"));
+		Object testClass = result.getInstance();
+		WebDriver webDriver = ((BaseTest) testClass).getWebdriver();
 		try {
-			Object testClass = result.getInstance();
-			WebDriver webDriver = ((BaseTest) testClass).getWebdriver();
-			extentTest.addScreenCaptureFromPath(captureScreenshoot(webDriver, result.getName()));
+			test.get().log(Status.FAIL,"Test failed!",MediaEntityBuilder.createScreenCaptureFromBase64String(saveScreenShootAsBase64(webDriver)).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

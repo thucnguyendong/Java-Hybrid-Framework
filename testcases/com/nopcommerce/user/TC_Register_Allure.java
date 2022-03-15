@@ -50,12 +50,8 @@ public class TC_Register_Allure extends BaseTest {
 	@Description("Register with empty data")
 	@Test
 	public void TC_01_Register_Empty_Data() {
-		log.info("Test Case 1: Register with empty data");
-		log.info("Step 1: Click Register Link");
 		registerPage = homePage.clickRegisterLink();
-		log.info("Step 2: Click Register Button");
 		registerPage.clickRegisterButton();
-		log.info("Step 3: Verify all fields and error");
 		verifyEquals(registerPage.getFirstNameErrorMessage(), "First name is required.");
 		verifyEquals(registerPage.getLastNameErrorMessage(), "Last name is required.");
 		verifyEquals(registerPage.getEmailErrorMessage(), "Email is required.");
@@ -68,86 +64,10 @@ public class TC_Register_Allure extends BaseTest {
 	@Description("Register with invalid email")
 	@Test
 	public void TC_02_Register_Invalid_Email() {
-		log.info("Test Case 2: Register with invalid email");
-		log.info("Step 1: Click Register Link");
 		registerPage = homePage.clickRegisterLink();
-		log.info("Step 2: Click input invalid email format");
 		registerPage.inputEmail("Test123");
-		log.info("Step 3: Click Register Button");
 		registerPage.clickRegisterButton();
-		log.info("Step 4: Verify email field");
-		verifyEquals(registerPage.getEmailErrorMessage(), "Wrong email");
-	}
-	
-	//@Test
-	public void TC_03_Register_Sucessfully() {
-		log.info("Test Case 3: Register successfully");
-		log.info("Step 1: Click Register Link");
-		registerPage = homePage.clickRegisterLink();
-		log.info("Step 2: Select radio button Male");
-		registerPage.selectMaleGender();
-		log.info("Step 3: Input First Name");
-		registerPage.inputFirstName(firstName);
-		log.info("Step 4: Input Last Name");
-		registerPage.inputLastName(lastName);
-		log.info("Step 5: Select Birthday Date: day, month, year");
-		registerPage.selectDay(day);
-		registerPage.selectMonth(month);
-		registerPage.selectYear(year);
-		log.info("Step 5: Input company name");
-		registerPage.inputCompany(company);
-		log.info("Step 6: Input email address");
-		registerPage.inputEmail(emailAddress);
-		log.info("Step 7: Input password");
-		registerPage.inputPassword(password);
-		log.info("Step 8: Input confirm password");
-		registerPage.inputConfirmPassword(confirmPassword);
-		log.info("Step 9: Click Register button");
-		registerPage.clickRegisterButton();
-		log.info("Step 10: Verify register's success message");
-		assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
-		log.info("Step 11: Click log out link");
-		homePage =registerPage.clickLogOutLink();
-		homePage.sleepInSecond(1);
-	}
-	
-	//@Test
-	public void TC_04_Register_Existed_Email() {
-		registerPage = homePage.clickRegisterLink();
-		registerPage.inputFirstName(firstName);
-		registerPage.inputLastName(lastName);
-		registerPage.inputEmail(emailAddress);
-		registerPage.inputPassword(password);
-		registerPage.inputConfirmPassword(confirmPassword);
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getExistingEmailErrorMessage(), "The specified email already exists");
-	}
-	
-	//@Test
-	public void TC_05_Password_Less_Than_6() {
-		registerPage = homePage.clickRegisterLink();
-		registerPage.inputFirstName(firstName);
-		registerPage.inputLastName(lastName);
-		registerPage.inputEmail(emailAddress);
-		registerPage.inputPassword("12345");
-		registerPage.inputConfirmPassword("12345");
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getPasswordErrorMessage(), "Password must meet the following rules:"+"\n"+"must have at least 6 characters");
-	}
-	
-	//@Test
-	public void TC_06_Incorrect_Confirm_Password() {
-		registerPage = homePage.clickRegisterLink();
-		registerPage.inputFirstName(firstName);
-		registerPage.inputLastName(lastName);
-		registerPage.inputEmail(emailAddress);
-		registerPage.inputPassword(password);
-		registerPage.inputConfirmPassword("12345");
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
+		verifyEquals(registerPage.getEmailErrorMessage(), "Wrong email 1");
 	}
 	
 	@AfterClass

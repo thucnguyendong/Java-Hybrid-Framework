@@ -37,6 +37,20 @@ public class BaseTest {
 		log=LogFactory.getLog(getClass());
 	}
 	
+	@BeforeSuite
+	public void beforeSuit(){
+		System.out.println("---------- START delete file in folder ----------");
+		deleteAllFileInFolder("extentReportScrShoot");
+		deleteAllFileInFolder("allure-json");
+		System.out.println("---------- END delete file in folder ----------");
+	}
+	
+	@AfterSuite(alwaysRun = true)
+	protected void cleanExecutableDriver() {
+		log.info("Close all drivers after suite");
+		closeBrowserAndDriver();
+	}
+	
 	public WebDriver getWebdriver() {
 		return this.driver;
 	}
@@ -193,13 +207,6 @@ public class BaseTest {
 		return checkEquals(actual, expected);
 	}
 	
-	@BeforeSuite
-	public void beforeSuit(){
-		System.out.println("---------- START delete file in folder ----------");
-		deleteAllFileInFolder("extentReportScrShoot");
-		deleteAllFileInFolder("allure-json");
-		System.out.println("---------- END delete file in folder ----------");
-	}
 
 	public void deleteAllFileInFolder(String fileName) {
 		try {
@@ -235,7 +242,7 @@ public class BaseTest {
 	public String saveScreenShootAsBase64(WebDriver driver) {
 		try {
 			TakesScreenshot scrShot = (TakesScreenshot) driver;
-			return "data:image/png;base64,"+scrShot.getScreenshotAs(OutputType.BASE64);
+			return scrShot.getScreenshotAs(OutputType.BASE64);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return e.getMessage();
@@ -304,9 +311,5 @@ public class BaseTest {
 		}
 	}
 	
-	@AfterSuite(alwaysRun = true)
-	protected void cleanExecutableDriver() {
-		log.info("Close all drivers after suite");
-		closeBrowserAndDriver();
-	}
+
 }

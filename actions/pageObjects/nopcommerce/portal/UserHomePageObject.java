@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.BasePage;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
+import io.qameta.allure.Step;
 import pageUI.nopcommerce.portal.UserBasePageUI;
 import pageUI.nopcommerce.portal.UserHomePageUI;
 
@@ -23,6 +24,7 @@ public class UserHomePageObject extends BasePage {
 		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 	
+	@Step("Click Register Link")
 	public UserRegisterPageObject clickRegisterLink() {
 		waitForElementClickable(driver, UserBasePageUI.REGISTER_LINK);
 		clickElement(driver, UserBasePageUI.REGISTER_LINK);
