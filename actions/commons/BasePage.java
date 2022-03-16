@@ -284,6 +284,13 @@ public class BasePage {
 		selectDropdownList.selectByVisibleText(input);
 	}
 	
+	public void selectItemInDefaultDropdown(WebDriver driver, String xpathLocator, String input, String...params) {
+		xpathLocator = getDynamicLocator(xpathLocator, params);
+		waitForAllElementsToBePresenced(driver, xpathLocator+"/option");
+		Select selectDropdownList = new Select(getElement(driver, xpathLocator));
+		selectDropdownList.selectByVisibleText(input);
+	}
+	
 	/**
 	 * Get text of the selected item in the dropdownList
 	 * @param driver
@@ -890,4 +897,17 @@ public class BasePage {
 		clickElement(driver, AdminBasePageUI.DYNAMIC_SIDE_SUB_MENU_ITEM, item);
 	}
 	
+	public void inputToTextboxByID(WebDriver driver, String textbox_id, String value) {
+		waitForElementVisible(driver, UserBasePageUI.DYNAMIC_TEXTBOX_BY_ID,textbox_id);
+		inputIntoElement(driver, UserBasePageUI.DYNAMIC_TEXTBOX_BY_ID, value, textbox_id);
+	}
+	
+	public void selectDropdownListByName(WebDriver driver, String dropdown_name, String value) {
+		selectItemInDefaultDropdown(driver, UserBasePageUI.DYNAMIC_DROPDOWN_LIST_BY_NAME, value, dropdown_name);
+	}
+	
+	public void clickButtonByText(WebDriver driver, String button_text) {
+		waitForElementVisible(driver, UserBasePageUI.DYNAMIC_BUTTON_BY_TEXT,button_text);
+		clickElement(driver, UserBasePageUI.DYNAMIC_BUTTON_BY_TEXT, button_text);
+	}
 }
