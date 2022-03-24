@@ -1,6 +1,11 @@
 
 package commons;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -774,7 +779,102 @@ public class BasePage {
 		return GlobalConstants.UPLOAD_FOLDER_PATH+fullName;
 	}
 	
+	public boolean isDataStringSortedAscending(WebDriver driver, String xpathLocator) {
+		List<WebElement> elementList = getListElement(driver, xpathLocator);
+		ArrayList<String> arrayList = new ArrayList<>();
+		for (WebElement element: elementList) {
+			arrayList.add(element.getText());
+		}
+		
+		ArrayList<String> sortedList = new ArrayList<>();
+		sortedList.addAll(arrayList);
+		Collections.sort(sortedList);
+		return arrayList.equals(sortedList);
+	}
 	
+	public boolean isDataStringSortedDescending(WebDriver driver, String xpathLocator) {
+		List<WebElement> elementList = getListElement(driver, xpathLocator);
+		ArrayList<String> arrayList = new ArrayList<>();
+		for (WebElement element: elementList) {
+			arrayList.add(element.getText());
+		}
+		
+		ArrayList<String> sortedList = new ArrayList<>();
+		sortedList.addAll(arrayList);
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+		return arrayList.equals(sortedList);
+	}
+	
+	public boolean isDataFloatSortedAscending(WebDriver driver, String xpathLocator) {
+		List<WebElement> elementList = getListElement(driver, xpathLocator);
+		ArrayList<Float> arrayList = new ArrayList<>();
+		for (WebElement element: elementList) {
+			String str = element.getText().replaceAll("[^\\d.-]", "");
+			arrayList.add(Float.parseFloat(str));
+		}
+		
+		ArrayList<Float> sortedList = new ArrayList<>();
+		sortedList.addAll(arrayList);
+		Collections.sort(sortedList);
+		return arrayList.equals(sortedList);
+	}
+	
+	public boolean isDataFloatSortedDescending(WebDriver driver, String xpathLocator) {
+		List<WebElement> elementList = getListElement(driver, xpathLocator);
+		ArrayList<Float> arrayList = new ArrayList<>();
+		for (WebElement element: elementList) {
+			String str = element.getText().replaceAll("[^\\d.-]", "");
+			arrayList.add(Float.parseFloat(str));
+		}
+		
+		ArrayList<Float> sortedList = new ArrayList<>();
+		sortedList.addAll(arrayList);
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+		return arrayList.equals(sortedList);
+	}
+	
+	public boolean isDataDateSortedAscending(WebDriver driver, String xpathLocator) {
+		List<WebElement> elementList = getListElement(driver, xpathLocator);
+		ArrayList<Date> arrayList = new ArrayList<>();
+		for (WebElement element: elementList) {
+			arrayList.add(convertStringToDate(element.getText()));
+		}
+		
+		ArrayList<Date> sortedList = new ArrayList<>();
+		sortedList.addAll(arrayList);
+		Collections.sort(sortedList);
+		return arrayList.equals(sortedList);
+	}
+	
+
+	public boolean isDataDateSortedDescending(WebDriver driver, String xpathLocator) {
+		List<WebElement> elementList = getListElement(driver, xpathLocator);
+		ArrayList<Date> arrayList = new ArrayList<>();
+		for (WebElement element: elementList) {
+			arrayList.add(convertStringToDate(element.getText()));
+		}
+		
+		ArrayList<Date> sortedList = new ArrayList<>();
+		sortedList.addAll(arrayList);
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+		return arrayList.equals(sortedList);
+	}
+	
+	private Date convertStringToDate(String dateString) {
+		dateString = dateString.replaceAll("[^\\d]", "");
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+		Date date = null;
+		try {
+			date = formatter.parse(dateString);
+		}
+		catch (ParseException e){
+			e.printStackTrace();
+		}
+		return date;
+	}
 	
 	/**
 	 * Create a random number

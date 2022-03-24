@@ -1,11 +1,8 @@
 package com.nopcommerce.user;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
@@ -90,7 +87,7 @@ public class TC_Register extends BaseTest {
 		log.info("Step 9: Click Register button");
 		registerPage.clickRegisterButton();
 		log.info("Step 10: Verify register's success message");
-		assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
+		verifyEquals(registerPage.getSuccessMessage(), "Your registration completed");
 		log.info("Step 11: Click log out link");
 		homePage =registerPage.clickLogOutLink();
 		homePage.sleepInSecond(1);
@@ -114,7 +111,7 @@ public class TC_Register extends BaseTest {
 		log.info("Step 7: Click register button");
 		registerPage.clickRegisterButton();
 		log.info("Step 8: Verify error message");
-		assertEquals(registerPage.getExistingEmailErrorMessage(), "The specified email already exists");
+		verifyEquals(registerPage.getExistingEmailErrorMessage(), "The specified email already exists");
 	}
 	
 	@Test
@@ -135,7 +132,7 @@ public class TC_Register extends BaseTest {
 		log.info("Step 7: Click register button");
 		registerPage.clickRegisterButton();
 		log.info("Step 8: Verify error message");
-		assertEquals(registerPage.getPasswordErrorMessage(), "Password must meet the following rules:"+"\n"+"must have at least 6 characters");
+		verifyEquals(registerPage.getPasswordErrorMessage(), "Password must meet the following rules:"+"\n"+"must have at least 6 characters");
 	}
 	
 	@Test
@@ -156,7 +153,7 @@ public class TC_Register extends BaseTest {
 		log.info("Step 7: Click register button");
 		registerPage.clickRegisterButton();
 		log.info("Step 8: Verify error message");
-		assertEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
+		verifyEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
 	}
 	
 	@AfterClass

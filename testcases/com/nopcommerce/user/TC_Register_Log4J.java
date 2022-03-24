@@ -45,11 +45,11 @@ public class TC_Register_Log4J extends BaseTest {
 		log.info("Step 2: Click Register Button");
 		registerPage.clickRegisterButton();
 		log.info("Step 3: Verify all fields and error");
-		verifyEquals(registerPage.getFirstNameErrorMessage(), "First name is required.");
-		verifyEquals(registerPage.getLastNameErrorMessage(), "Last name is required.");
-		verifyEquals(registerPage.getEmailErrorMessage(), "Email is required.");
-		verifyEquals(registerPage.getPasswordErrorMessage(), "Password is required.");
-		verifyEquals(registerPage.getConfirmPasswordErrorMessage(), "Password is required.");
+		assertEquals(registerPage.getFirstNameErrorMessage(), "First name is required.");
+		assertEquals(registerPage.getLastNameErrorMessage(), "Last name is required.");
+		assertEquals(registerPage.getEmailErrorMessage(), "Email is required.");
+		assertEquals(registerPage.getPasswordErrorMessage(), "Password is required.");
+		assertEquals(registerPage.getConfirmPasswordErrorMessage(), "Password is required.");
 	}
 	
 	@Test
@@ -62,10 +62,10 @@ public class TC_Register_Log4J extends BaseTest {
 		log.info("Step 3: Click Register Button");
 		registerPage.clickRegisterButton();
 		log.info("Step 4: Verify email field");
-		verifyEquals(registerPage.getEmailErrorMessage(), "Wrong email");
+		assertEquals(registerPage.getEmailErrorMessage(), "Wrong email");
 	}
 	
-	//@Test
+	@Test
 	public void TC_03_Register_Sucessfully() {
 		log.info("Test Case 3: Register successfully");
 		log.info("Step 1: Click Register Link");
@@ -95,45 +95,6 @@ public class TC_Register_Log4J extends BaseTest {
 		log.info("Step 11: Click log out link");
 		homePage =registerPage.clickLogOutLink();
 		homePage.sleepInSecond(1);
-	}
-	
-	//@Test
-	public void TC_04_Register_Existed_Email() {
-		registerPage = homePage.clickRegisterLink();
-		registerPage.inputFirstName(firstName);
-		registerPage.inputLastName(lastName);
-		registerPage.inputEmail(emailAddress);
-		registerPage.inputPassword(password);
-		registerPage.inputConfirmPassword(confirmPassword);
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getExistingEmailErrorMessage(), "The specified email already exists");
-	}
-	
-	//@Test
-	public void TC_05_Password_Less_Than_6() {
-		registerPage = homePage.clickRegisterLink();
-		registerPage.inputFirstName(firstName);
-		registerPage.inputLastName(lastName);
-		registerPage.inputEmail(emailAddress);
-		registerPage.inputPassword("12345");
-		registerPage.inputConfirmPassword("12345");
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getPasswordErrorMessage(), "Password must meet the following rules:"+"\n"+"must have at least 6 characters");
-	}
-	
-	//@Test
-	public void TC_06_Incorrect_Confirm_Password() {
-		registerPage = homePage.clickRegisterLink();
-		registerPage.inputFirstName(firstName);
-		registerPage.inputLastName(lastName);
-		registerPage.inputEmail(emailAddress);
-		registerPage.inputPassword(password);
-		registerPage.inputConfirmPassword("12345");
-		registerPage.clickRegisterButton();
-		
-		assertEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
 	}
 	
 	@Parameters("browser")
