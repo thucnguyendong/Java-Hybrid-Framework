@@ -67,5 +67,10 @@
 	<classpathentry kind="lib" path="Java Faker/generex-1.0.2.jar"/>
 	<classpathentry kind="lib" path="Java Faker/javafaker-1.0.1.jar" sourcepath="D:/Java Study/Java Hybrid Framework/Java Faker/javafaker-1.0.1-sources.jar"/>
 	<classpathentry kind="lib" path="Java Faker/snakeyaml-1.23.jar"/>
+	<classpathentry kind="lib" path="lib/ExcelLib/poi-5.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/ExcelLib/poi-ooxml-5.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/Jackson/jackson-annotations-2.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/Jackson/jackson-core-2.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/Jackson/jackson-databind-2.10.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
