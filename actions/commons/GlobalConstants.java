@@ -10,4 +10,6 @@ public class GlobalConstants {
 	public static final String DOWNLOAD_FOLDER_PATH = System.getProperty("user.dir")+ File.separator+"downloadFile"+ File.separator;
 	public static final String USER_PORTAL_PAGE_URL="https://demo.nopcommerce.com";
 	public static final String ADMIN_PAGE_URL="https://admin-demo.nopcommerce.com";
+	public static final String TEST_DATA_PATH =  PROJECT_PATH+File.separator+"testdata"+File.separator;
+	public static final String TEST_DATA_DRIVEN_PATH =  TEST_DATA_PATH+"com"+File.separator+"nopcommerce"+File.separator+"datadriven"+File.separator;
 }

@@ -1,4 +1,0 @@
-[INFO ] [2022-03-10 22:27:23,776] Pre-condition: Open browser chrome and navigate to https://demo.nopcommerce.com
-[INFO ] [2022-03-10 22:27:24,458] Close all drivers after suite
-[INFO ] [2022-03-10 22:27:24,459] OS name = windows 10
-[INFO ] [2022-03-10 22:27:24,460] 

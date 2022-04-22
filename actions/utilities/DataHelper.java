@@ -18,16 +18,16 @@ public class DataHelper {
 		return minimum + rand.nextInt(maximum - minimum);
 	}
 	
-	public String getFirstName() {
+	public String getFirstname() {
 		return faker.address().firstName();
 	}
 	
-	public String getLastName() {
+	public String getLastname() {
 		return faker.address().lastName();
 	}
 	
 	public String getFullname() {
-		return getFirstName() + " " + getLastName();
+		return getFirstname() + " " + getLastname();
 	}
 	
 	public String getEmailAddress() {

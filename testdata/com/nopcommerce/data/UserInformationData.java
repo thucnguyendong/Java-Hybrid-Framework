@@ -9,12 +9,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import commons.GlobalConstants;
 
 public class UserInformationData {
-	public static String testDataPath =  GlobalConstants.PROJECT_PATH+File.separator+"testdata"+File.separator;
 	public static UserInformationData getUserInformation(String jsonFileName) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-			return mapper.readValue(new File(testDataPath+ jsonFileName), UserInformationData.class);
+			return mapper.readValue(new File(GlobalConstants.TEST_DATA_PATH+ jsonFileName), UserInformationData.class);
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();

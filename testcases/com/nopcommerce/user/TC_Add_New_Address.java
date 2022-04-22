@@ -26,11 +26,10 @@ public class TC_Add_New_Address extends BaseTest {
 	UserAddressPageObject addressPage;
 	UserRegisterPageObject registerPage;
 	UserCustomerInfoPageObject customerInfoPage;
-	
-	String projectPath = System.getProperty("user.dir");
-	
+		
 	@BeforeTest
 	public void beforeTest() {
+		log.info("Pre-condition: Open browser chrome and navigate to "+ GlobalConstants.USER_PORTAL_PAGE_URL);
 		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
 	}
