@@ -31,7 +31,7 @@ public class TC_Add_New_Address extends BaseTest {
 	public void beforeTest() {
 		log.info("Pre-condition: Open browser chrome and navigate to "+ GlobalConstants.USER_PORTAL_PAGE_URL);
 		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
-		homePage = PageGeneratorManager.getUserHomePage(driver);
+		homePage = PageGeneratorManager.getPageGenerator().getUserHomePage(driver);
 	}
 	
 	@BeforeClass

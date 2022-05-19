@@ -34,7 +34,7 @@ public class TC_Update_Customer_Info extends BaseTest {
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
-		homePage = PageGeneratorManager.getUserHomePage(driver);
+		homePage = PageGeneratorManager.getPageGenerator().getUserHomePage(driver);
 	}
 	
 	@BeforeClass

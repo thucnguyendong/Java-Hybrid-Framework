@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name="NopCommerce.User">
+  <test name="Run on chrome">
+  	<parameter name = "browser" value ="chrome"></parameter>
+  	<parameter name = "url" value ="https://demo.nopcommerce.com/"></parameter>
+  	<parameter name = "ip" value ="192.168.1.114"></parameter>
+  	<parameter name = "port" value ="4444"></parameter>
+    <classes>
+      <class name="com.nopcommerce.grid.TC_Register_Grid"/>
+    </classes>
+  </test> <!-- Test -->
+  
+
+</suite> <!-- Suite -->

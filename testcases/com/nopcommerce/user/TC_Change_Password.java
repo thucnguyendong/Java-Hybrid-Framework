@@ -33,7 +33,7 @@ public class TC_Change_Password extends BaseTest {
 	@BeforeTest
 	public void beforeTest() {
 		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
-		homePage = PageGeneratorManager.getUserHomePage(driver);
+		homePage = PageGeneratorManager.getPageGenerator().getUserHomePage(driver);
 	}
 	
 	@BeforeClass

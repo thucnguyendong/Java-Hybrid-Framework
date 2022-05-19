@@ -23,12 +23,12 @@ public class TC_Search extends BaseTest {
 	@BeforeClass
 	public void beforeClass() {
 		driver = getBrowserDriver("chrome",GlobalConstants.USER_PORTAL_PAGE_URL);
-		homePage = PageGeneratorManager.getUserHomePage(driver);
+		homePage = PageGeneratorManager.getPageGenerator().getUserHomePage(driver);
 	}
 	
 	@Test
 	public void TC_01_Search_Empty_Data() {
-		searchPage = PageGeneratorManager.getUserSearchPage(driver);
+		searchPage = PageGeneratorManager.getPageGenerator().getUserSearchPage(driver);
 		searchPage.clickSearchButton();
 		assertEquals(searchPage.getAlertText(driver), "Please enter some search keyword");
 		searchPage.acceptAlert(driver);
